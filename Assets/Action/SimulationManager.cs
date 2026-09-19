@@ -170,7 +170,8 @@ private void LoadPlanet()
 			if (organism.direction == null)
 			{
 				Vector2 randomDirection =
-					Random.insideUnitCircle.normalized;
+					UnityEngine.Random.insideUnitCircle.normalized;
+
 
 				organism.direction =
 					new DirectionData
