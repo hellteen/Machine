@@ -21,6 +21,15 @@ public class OrganismData
 
     // Простая память.
     public MemoryData memory;
+
+    public DirectionData direction;
+}
+
+[Serializable]
+public class DirectionData
+{
+    public float x;
+    public float y ;
 }
 
 

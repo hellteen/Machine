@@ -70,48 +70,81 @@ public class ActionSystem
     // -----------------------------------------
 
     private void Move(
-        OrganismData organism,
-        EnvironmentData environment)
+     OrganismData organism,
+     EnvironmentData environment)
     {
-        organism.state.energy -= 5f;
+        // Немного меняем направление,
+        // чтобы движение было хаотичным.
+        organism.direction.x +=
+            Random.Range(-0.3f, 0.3f);
 
-        organism.state.hunger += 4f;
+        organism.direction.y +=
+            Random.Range(-0.3f, 0.3f);
+
+        // Нормализуем направление.
+        Vector2 direction =
+            new Vector2(
+                organism.direction.x,
+                organism.direction.y
+            ).normalized;
+
+        organism.direction.x =
+            direction.x;
+
+        organism.direction.y =
+            direction.y;
+
+
+        // Скорость зависит от гена движения.
+        float speed =
+            0.2f +
+            organism.genome.movement * 0.8f;
+
+
+        // Двигаем организм.
+        organism.position.x +=
+            direction.x * speed;
+
+        organism.position.y +=
+            direction.y * speed;
+
+
+        // Границы твоей панели.
+        organism.position.x =
+            Mathf.Clamp(
+                organism.position.x,
+                -980f,
+                980f
+            );
+
+        organism.position.y =
+            Mathf.Clamp(
+                organism.position.y,
+                -540f,
+                540f
+            );
+
+
+        // Расход энергии.
+        organism.state.energy -=
+            1f + organism.genome.movement;
+
+        organism.state.hunger += 2f;
 
         organism.state.age += 1f;
 
 
-        // Радиация наносит повреждения.
-        // Устойчивость уменьшает урон.
+        // Урон от радиации.
         float radiationDamage =
             environment.radiation *
-            (1f -
-             organism.genome.radiationResistance)
+            (1f - organism.genome.radiationResistance)
             * 4f;
 
-
-        // Холод наносит повреждения.
-        float coldLevel =
-            Mathf.Max(
-                0f,
-                (-environment.temperature - 50f)
-                / 100f
-            );
-
-
-        float coldDamage =
-            coldLevel *
-            (1f -
-             organism.genome.coldResistance);
-
-
         organism.state.health -=
-            radiationDamage +
-            coldDamage;
-
+            radiationDamage;
 
         ClampState(organism);
     }
-
 
     // -----------------------------------------
     // ПОИСК РЕСУРСОВ

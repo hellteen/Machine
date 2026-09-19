@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
@@ -158,21 +159,25 @@ private void LoadPlanet()
 				new List<OrganismData>();
 		}
 
-
-		// У стартовых организмов
-		// ещё нет генома в JSON.
-		//
-		// Поэтому создаём его случайно.
-
-		foreach (
-			OrganismData organism
-			in Planet.organisms)
+		foreach (OrganismData organism in Planet.organisms)
 		{
 			if (organism.genome == null)
 			{
 				organism.genome =
-					evolutionSystem
-						.CreateRandomGenome();
+					evolutionSystem.CreateRandomGenome();
+			}
+
+			if (organism.direction == null)
+			{
+				Vector2 randomDirection =
+					Random.insideUnitCircle.normalized;
+
+				organism.direction =
+					new DirectionData
+					{
+						x = randomDirection.x,
+						y = randomDirection.y
+					};
 			}
 		}
 	}
