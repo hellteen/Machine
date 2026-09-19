@@ -42,39 +42,57 @@ public class PlanetSelectionManager : MonoBehaviour
     // ЗАПУСК СИМУЛЯЦИИ
     // -----------------------------------------
 
-    public void StartSimulation()
+public void StartSimulation()
     {
+        Debug.Log("=== START SIMULATION CLICKED ===");
+
         if (selectedPlanet == null)
         {
-            Debug.LogWarning(
-                "Planet is not selected!"
+            Debug.LogError(
+                "ERROR: selectedPlanet == null"
             );
 
             return;
         }
+
+        Debug.Log(
+            "Selected planet object: " +
+            selectedPlanet.gameObject.name
+        );
+
 
         if (selectedPlanet.PlanetJson == null)
         {
             Debug.LogError(
-                "Selected planet does not have a JSON file!"
+                "ERROR: PlanetJson == null for " +
+                selectedPlanet.gameObject.name
             );
 
             return;
         }
 
-        // Запоминаем JSON выбранной планеты.
-        SelectedPlanetJson =
-            selectedPlanet.PlanetJson;
 
         Debug.Log(
-            "Loading planet: " +
+            "JSON found: " +
             selectedPlanet.PlanetJson.name
         );
 
-        // Переходим в сцену симуляции.
+
+        SelectedPlanetJson =
+            selectedPlanet.PlanetJson;
+
+
+        Debug.Log(
+            "STATIC JSON SAVED: " +
+            SelectedPlanetJson.name
+        );
+
+
         SceneManager.LoadScene(
             targetSceneName
         );
     }
+
+
 }
 

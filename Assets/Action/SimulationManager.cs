@@ -44,7 +44,8 @@ public class SimulationManager : MonoBehaviour
 	// START
 	// -----------------------------------------
 
-	private void Start()
+	
+private void Start()
 	{
 		decisionEngine =
 			new DecisionEngine();
@@ -58,8 +59,31 @@ public class SimulationManager : MonoBehaviour
 
 		LoadPlanet();
 
+
+		// Если JSON не загрузился,
+		// дальше симуляцию не запускаем.
+		if (Planet == null)
+		{
+			Debug.LogError(
+				"Simulation stopped: planet was not loaded."
+			);
+
+			return;
+		}
+
+
 		InitializePopulation();
+
+
+		// Проверяем, сколько организмов
+		// реально загрузилось из JSON.
+		Debug.Log(
+			"Initial population: " +
+			Planet.organisms.Count
+		);
 	}
+
+
 
 
 	// -----------------------------------------

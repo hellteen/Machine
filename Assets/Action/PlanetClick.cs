@@ -1,5 +1,4 @@
 
-using System.Diagnostics;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -16,11 +15,33 @@ public class PlanetClick : MonoBehaviour
 
         manager =
             FindFirstObjectByType<PlanetSelectionManager>();
+
+
+        if (planet == null)
+        {
+            Debug.LogError(
+                "PlanetSelection component not found on " +
+                gameObject.name
+            );
+        }
+
+        if (manager == null)
+        {
+            Debug.LogError(
+                "PlanetSelectionManager not found!"
+            );
+        }
     }
 
 
     private void OnMouseDown()
     {
+        Debug.Log(
+            "CLICKED PLANET: " +
+            gameObject.name
+        );
+
+
         if (manager == null)
         {
             Debug.LogError(
@@ -29,6 +50,17 @@ public class PlanetClick : MonoBehaviour
 
             return;
         }
+
+
+        if (planet == null)
+        {
+            Debug.LogError(
+                "PlanetSelection not found!"
+            );
+
+            return;
+        }
+
 
         manager.SelectPlanet(planet);
     }
