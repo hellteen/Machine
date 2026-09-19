@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1562591946198835792}
   - component: {fileID: 7444881504850341672}
   - component: {fileID: 6751863335637059050}
+  - component: {fileID: 2390815689470852845}
   m_Layer: 0
   m_Name: Organism
   m_TagString: Untagged
@@ -112,3 +113,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2390815689470852845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7339708677302245453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5daf9db726039ba4ebe1ce862bc190b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OrganismView
