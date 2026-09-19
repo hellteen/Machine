@@ -1,5 +1,7 @@
+using System.Diagnostics;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Debug = UnityEngine.Debug;
 
 public class ActionSystem
 {
@@ -73,13 +75,34 @@ public class ActionSystem
      OrganismData organism,
      EnvironmentData environment)
     {
+        Debug.Log(
+    "MOVE " +
+    organism.id +
+    " position: " +
+    organism.position.x +
+    ", " +
+    organism.position.y
+);
+      / Если направления ещё нет — создаём его.
+    if (organism.direction == null)
+        {
+            Vector2 randomDirection =
+                UnityEngine.Random.insideUnitCircle.normalized;
+
+            organism.direction = new DirectionData
+            {
+                x = randomDirection.x,
+                y = randomDirection.y
+            };
+        }
+
         // Немного меняем направление,
-        // чтобы движение было хаотичным.
+        // чтобы движение оставалось хаотичным.
         organism.direction.x +=
-            Random.Range(-0.3f, 0.3f);
+            UnityEngine.Random.Range(-0.15f, 0.15f);
 
         organism.direction.y +=
-            Random.Range(-0.3f, 0.3f);
+            UnityEngine.Random.Range(-0.15f, 0.15f);
 
         // Нормализуем направление.
         Vector2 direction =
@@ -88,20 +111,17 @@ public class ActionSystem
                 organism.direction.y
             ).normalized;
 
-        organism.direction.x =
-            direction.x;
-
-        organism.direction.y =
-            direction.y;
+        organism.direction.x = direction.x;
+        organism.direction.y = direction.y;
 
 
-        // Скорость зависит от гена движения.
+        // Скорость.
         float speed =
-    10f +
-    organism.genome.movement * 20f;
+            10f +
+            organism.genome.movement * 20f;
 
 
-        // Двигаем организм.
+        // Движение.
         organism.position.x +=
             direction.x * speed;
 
@@ -109,7 +129,7 @@ public class ActionSystem
             direction.y * speed;
 
 
-        // Границы твоей панели.
+        // Границы области движения.
         float minX = -800f;
         float maxX = 800f;
 
@@ -117,14 +137,14 @@ public class ActionSystem
         float maxY = 400f;
 
 
+        // Отскок от левой/правой границы.
         if (organism.position.x <= minX)
         {
             organism.position.x = minX;
             organism.direction.x =
                 Mathf.Abs(organism.direction.x);
         }
-
-        if (organism.position.x >= maxX)
+        else if (organism.position.x >= maxX)
         {
             organism.position.x = maxX;
             organism.direction.x =
@@ -132,14 +152,14 @@ public class ActionSystem
         }
 
 
+        // Отскок от верхней/нижней границы.
         if (organism.position.y <= minY)
         {
             organism.position.y = minY;
             organism.direction.y =
                 Mathf.Abs(organism.direction.y);
         }
-
-        if (organism.position.y >= maxY)
+        else if (organism.position.y >= maxY)
         {
             organism.position.y = maxY;
             organism.direction.y =
@@ -147,12 +167,11 @@ public class ActionSystem
         }
 
 
-        // Расход энергии.
+        // Организм тратит энергию.
         organism.state.energy -=
             1f + organism.genome.movement;
 
         organism.state.hunger += 2f;
-
         organism.state.age += 1f;
 
 
