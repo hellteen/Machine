@@ -33,4 +33,3 @@ public class PlanetClick : MonoBehaviour
         manager.SelectPlanet(planet);
     }
 }
-```

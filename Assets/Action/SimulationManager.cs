@@ -85,7 +85,7 @@ public class SimulationManager : MonoBehaviour
 	// ЗАГРУЗКА JSON
 	// -----------------------------------------
 
-	```csharp
+	
 private void LoadPlanet()
 	{
 		TextAsset planetJson =
