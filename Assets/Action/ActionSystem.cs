@@ -231,14 +231,7 @@ public class ActionSystem
 
         ClampState(organism);
     }
-    private void UpdateView()
-    {
-        transform.position = new Vector3(
-            Data.position.x / 100f,
-            Data.position.y / 100f,
-            0f
-        );
-    }
+   
 
     private bool CanReproduce(
         OrganismData organism)

@@ -30,9 +30,9 @@ public class OrganismView : MonoBehaviour
     {
         transform.position =
             new Vector3(
-                Data.position.x,
-                Data.position.y,
-                Data.position.z
+                Data.position.x / 100f,
+                Data.position.y / 100f,
+                0f
             );
     }
 }
