@@ -1863,6 +1863,7 @@ GameObject:
   - component: {fileID: 1407912080}
   - component: {fileID: 1407912079}
   - component: {fileID: 1407912078}
+  - component: {fileID: 1407912081}
   m_Layer: 5
   m_Name: Button_Select
   m_TagString: Untagged
@@ -1933,7 +1934,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1407912079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1407912081}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: LoadSimulationScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1407912079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1972,6 +1985,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407912076}
   m_CullTransparentMesh: 1
+--- !u!114 &1407912081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407912076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f399c0d107b0d64aac91b4ce85a412b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
+  targetSceneName: Simulation
 --- !u!1 &1669377337
 GameObject:
   m_ObjectHideFlags: 0
