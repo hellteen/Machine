@@ -1000,7 +1000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afc55e6ae3b884f4a887991e65629c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimulationManager
-  planetJson: {fileID: 0}
   tickInterval: 1
 --- !u!1 &487202395
 GameObject:
