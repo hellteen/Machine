@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using Debug = UnityEngine.Debug;
+
 
 public class PopulationRenderer : MonoBehaviour
 {
