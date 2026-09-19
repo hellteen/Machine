@@ -1,5 +1,4 @@
-{
-	"planet": {
+ {
 		"id": 3,
 		"name": "Mars",
 		"description": "Cold and dry planet with low pressure and limited resources.",
@@ -11,7 +10,7 @@
 			"energy": 300.0,
 			"resourceRegeneration": 0.7
 		},
-		"organism": [
+		"organisms": [
 			{
 				"id": 1,
 				"position": {
@@ -43,4 +42,3 @@
 			}
 		]
 	}
-}

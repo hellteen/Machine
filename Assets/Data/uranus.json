@@ -1,5 +1,4 @@
-{
-  "planet": {
+ {
     "id": 2,
     "name": "Uranus",
     "description": "Extremely cold planet with moderate resources and unusual environmental conditions.",
@@ -11,7 +10,7 @@
       "energy": 450.0,
       "resourceRegeneration": 1.0
     },
-    "organism": [
+    "organisms": [
       {
         "id": 1,
         "position": {
@@ -43,4 +42,3 @@
       }
     ]
   }
-}

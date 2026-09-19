@@ -1,5 +1,4 @@
-{
-	"planet": {
+ {
 		"id": 4,
 		"name": "Neptune",
 		"description": "Very cold planet with strong environmental pressure and limited resources.",
@@ -11,7 +10,7 @@
 			"energy": 600.0,
 			"resourceRegeneration": 0.8
 		},
-		"organism": [
+		"organisms": [
 			{
 				"id": 1,
 				"position": {
@@ -43,4 +42,3 @@
 			}
 		]
 	}
-}
