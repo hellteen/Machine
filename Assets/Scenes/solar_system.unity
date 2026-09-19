@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -211.04248, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1775,7 +1775,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -211.60242, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1953,19 +1953,6 @@ MonoBehaviour:
   - "\u041D\u0435\u043F\u0442\u0443\u043D"
   - "\u041C\u0430\u0440\u0441"
   - "\u0423\u0440\u0430\u043D"
-  planetStats:
-  - line1: "\u0422\u0418\u041F: \u0413\u0410\u0417\u041E\u0412\u042B\u0419 \u0413\u0418\u0413\u0410\u041D\u0422"
-    line2: "\u0413\u0420\u0410\u0412\u0418\u0422\u0410\u0426\u0418\u042F: 24.8 \u043C/\u0441?"
-    line3: "\u0422\u0415\u041C\u041F\u0415\u0420\u0410\u0422\u0423\u0420\u0410: -110 \xB0C"
-  - line1: "\u0422\u0418\u041F: \u041B\u0415\u0414\u042F\u041D\u041E\u0419 \u0413\u0418\u0413\u0410\u041D\u0422"
-    line2: "\u0413\u0420\u0410\u0412\u0418\u0422\u0410\u0426\u0418\u042F: 8.7 \u043C/\u0441?"
-    line3: "\u0422\u0415\u041C\u041F\u0415\u0420\u0410\u0422\u0423\u0420\u0410: -195 \xB0C"
-  - line1: "\u0422\u0418\u041F: \u041F\u0423\u0421\u0422\u042B\u041D\u041D\u0410\u042F"
-    line2: "\u0413\u0420\u0410\u0412\u0418\u0422\u0410\u0426\u0418\u042F: 3.7 \u043C/\u0441?"
-    line3: "\u0422\u0415\u041C\u041F\u0415\u0420\u0410\u0422\u0423\u0420\u0410: -63 \xB0C"
-  - line1: "\u0422\u0418\u041F: \u041B\u0415\u0414\u042F\u041D\u041E\u0419 \u0413\u0418\u0413\u0410\u041D\u0422"
-    line2: "\u0413\u0420\u0410\u0412\u0418\u0422\u0410\u0426\u0418\u042F: 11.2 \u043C/\u0441?"
-    line3: "\u0422\u0415\u041C\u041F\u0415\u0420\u0410\u0422\u0423\u0420\u0410: -201 \xB0C"
 --- !u!1 &1318741744
 GameObject:
   m_ObjectHideFlags: 0
@@ -2610,7 +2597,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -206.64233, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

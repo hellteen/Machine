@@ -55,11 +55,11 @@ public class PlanetCarousel : MonoBehaviour
     };
 
     [Header("Характеристики для каждой планеты")]
-    [SerializeField]
+   
     private PlanetStats[] planetStats = new PlanetStats[]
     {
         new PlanetStats("ВЫСОКОЕ ДАВЛЕНИЕ", "СИЛЬНАЯ РАДИАЦИЯ", "ТЕМПЕРАТУРА: -110 °C"),
-        new PlanetStats("ТИП: ЛЕДЯНОЙ ГИГАНТ", "ГРАВИТАЦИЯ: 8.7 м/с²",  "ТЕМПЕРАТУРА: -195 °C"),
+        new PlanetStats("СИЛЬНОЕ ДАВЛЕНИЕ", "ОГРАНИЧЕННЫЕ РЕСУРСЫ",  "ТЕМПЕРАТУРА: -195 °C"),
         new PlanetStats("НИЗКОЕ ДАВЛЕНИЕ",      "ОГРАНИЧЕННЫЕ РЕСУРСЫ",  "ТЕМПЕРАТУРА: -63 °C"),
         new PlanetStats("ТИП: ЛЕДЯНОЙ ГИГАНТ", "ГРАВИТАЦИЯ: 11.2 м/с²", "ТЕМПЕРАТУРА: -201 °C")
     };
