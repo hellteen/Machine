@@ -83,7 +83,7 @@ public class ActionSystem
     ", " +
     organism.position.y
 );
-      / Если направления ещё нет — создаём его.
+     // Если направления ещё нет — создаём его.
     if (organism.direction == null)
         {
             Vector2 randomDirection =
