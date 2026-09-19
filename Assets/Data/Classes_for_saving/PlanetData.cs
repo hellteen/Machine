@@ -1,33 +1,33 @@
-using System;
-using System.Collections.Generic;
+    using System;
+    using System.Collections.Generic;
 
-[Serializable]
-public class PlanetData
-{
-    public int id;
-    public string name;
-    public string description;
+    [Serializable]
+    public class PlanetData
+    {
+        public int id;
+        public string name;
+        public string description;
 
-    // Текущие параметры окружающей среды.
-    public EnvironmentData environment;
+        // Текущие параметры окружающей среды.
+        public EnvironmentData environment;
 
-    // На планете теперь может быть много организмов.
-    public List<OrganismData> organisms;
-}
+        // На планете теперь может быть много организмов.
+        public List<OrganismData> organisms;
+    }
 
-[Serializable]
-public class EnvironmentData
-{
-    public float temperature;
-    public float radiation;
-    public float pressure;
+    [Serializable]
+    public class EnvironmentData
+    {
+        public float temperature;
+        public float radiation;
+        public float pressure;
 
-    // Количество доступных ресурсов.
-    public float resources;
+        // Количество доступных ресурсов.
+        public float resources;
 
-    // Общая энергия среды.
-    public float energy;
+        // Общая энергия среды.
+        public float energy;
 
-    // Скорость восстановления ресурсов.
-    public float resourceRegeneration;
-}
+        // Скорость восстановления ресурсов.
+        public float resourceRegeneration;
+    }

@@ -6,9 +6,6 @@ using Debug = UnityEngine.Debug;
 public class SimulationManager : MonoBehaviour
 {
 
-	// JSON с начальными условиями планеты.
-	[SerializeField]
-	private TextAsset planetJson;
 
 
 	// Интервал между шагами симуляции.
@@ -88,19 +85,42 @@ public class SimulationManager : MonoBehaviour
 	// ЗАГРУЗКА JSON
 	// -----------------------------------------
 
-	private void LoadPlanet()
+	```csharp
+private void LoadPlanet()
 	{
+		TextAsset planetJson =
+			PlanetSelectionManager.SelectedPlanetJson;
+
+		if (planetJson == null)
+		{
+			Debug.LogError(
+				"No planet JSON was selected!"
+			);
+
+			return;
+		}
+
 		Planet =
 			JsonUtility.FromJson<PlanetData>(
 				planetJson.text
 			);
 
+		if (Planet == null)
+		{
+			Debug.LogError(
+				"Failed to load planet JSON!"
+			);
+
+			return;
+		}
 
 		Debug.Log(
 			"Loaded planet: " +
 			Planet.name
 		);
 	}
+```
+
 
 
 	// -----------------------------------------
