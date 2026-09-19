@@ -1,0 +1,44 @@
+{
+  "planet": {
+    "id": 2,
+    "name": "Uranus",
+    "description": "Extremely cold planet with moderate resources and unusual environmental conditions.",
+    "environment": {
+      "temperature": -180.0,
+      "radiation": 0.3,
+      "pressure": 1.5,
+      "resources": 600.0,
+      "energy": 450.0,
+      "resourceRegeneration": 1.0
+    },
+    "organism": {
+      "id": 1,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "state": {
+        "health": 100.0,
+        "energy": 75.0,
+        "age": 0.0,
+        "hunger": 0.0
+      },
+      "behavior": {
+        "movement": 0.3,
+        "resourceSeeking": 0.7,
+        "reproduction": 0.3,
+        "waiting": 0.7
+      },
+      "sensors": {
+        "visionRange": 8.0,
+        "temperatureSensitivity": 1.5,
+        "radiationSensitivity": 1.0,
+        "resourceSensitivity": 1.1
+      },
+      "memory": {
+        "capacity": 20
+      }
+    }
+  }
+}

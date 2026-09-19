@@ -1,0 +1,44 @@
+{
+  "planet": {
+    "id": 1,
+    "name": "Jupiter",
+    "description": "Huge planet with high pressure, strong radiation and abundant energy.",
+    "environment": {
+      "temperature": -110.0,
+      "radiation": 0.9,
+      "pressure": 3.0,
+      "resources": 1200.0,
+      "energy": 1000.0,
+      "resourceRegeneration": 3.0
+    },
+    "organism": {
+      "id": 1,
+      "position": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+      },
+      "state": {
+        "health": 100.0,
+        "energy": 90.0,
+        "age": 0.0,
+        "hunger": 0.0
+      },
+      "behavior": {
+        "movement": 0.8,
+        "resourceSeeking": 0.6,
+        "reproduction": 0.2,
+        "waiting": 0.1
+      },
+      "sensors": {
+        "visionRange": 15.0,
+        "temperatureSensitivity": 0.8,
+        "radiationSensitivity": 0.6,
+        "resourceSensitivity": 1.0
+      },
+      "memory": {
+        "capacity": 15
+      }
+    }
+  }
+}

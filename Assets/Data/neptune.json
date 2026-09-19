@@ -1,0 +1,44 @@
+{
+	"planet": {
+		"id": 4,
+		"name": "Neptune",
+		"description": "Very cold planet with strong environmental pressure and limited resources.",
+		"environment": {
+			"temperature": -200.0,
+			"radiation": 0.4,
+			"pressure": 2.5,
+			"resources": 500.0,
+			"energy": 600.0,
+			"resourceRegeneration": 0.8
+		},
+		"organism": {
+			"id": 1,
+			"position": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"state": {
+				"health": 100.0,
+				"energy": 85.0,
+				"age": 0.0,
+				"hunger": 0.0
+			},
+			"behavior": {
+				"movement": 0.4,
+				"resourceSeeking": 0.8,
+				"reproduction": 0.2,
+				"waiting": 0.6
+			},
+			"sensors": {
+				"visionRange": 10.0,
+				"temperatureSensitivity": 1.4,
+				"radiationSensitivity": 1.1,
+				"resourceSensitivity": 1.2
+			},
+			"memory": {
+				"capacity": 18
+			}
+		}
+	}
+}

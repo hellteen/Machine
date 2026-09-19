@@ -1,0 +1,44 @@
+{
+	"planet": {
+		"id": 3,
+		"name": "Mars",
+		"description": "Cold and dry planet with low pressure and limited resources.",
+		"environment": {
+			"temperature": -60.0,
+			"radiation": 0.7,
+			"pressure": 0.4,
+			"resources": 400.0,
+			"energy": 300.0,
+			"resourceRegeneration": 0.7
+		},
+		"organism": {
+			"id": 1,
+			"position": {
+				"x": 0.0,
+				"y": 0.0,
+				"z": 0.0
+			},
+			"state": {
+				"health": 100.0,
+				"energy": 70.0,
+				"age": 0.0,
+				"hunger": 0.0
+			},
+			"behavior": {
+				"movement": 0.5,
+				"resourceSeeking": 0.9,
+				"reproduction": 0.2,
+				"waiting": 0.3
+			},
+			"sensors": {
+				"visionRange": 12.0,
+				"temperatureSensitivity": 1.2,
+				"radiationSensitivity": 0.9,
+				"resourceSensitivity": 1.4
+			},
+			"memory": {
+				"capacity": 12
+			}
+		}
+	}
+}
