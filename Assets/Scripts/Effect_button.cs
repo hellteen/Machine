@@ -64,7 +64,7 @@ public class Effect_button : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             btnImage.color = flashColor;
         }
 
-        // Задаем возврат обратно в состояние наведения (так как курсор всё ещё на кнопке)
+        
         tarScale = orScale * hoverScale;
         tarColor = hoverColor;
     }
