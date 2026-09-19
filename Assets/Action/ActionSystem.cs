@@ -77,7 +77,7 @@ public class ActionSystem
         if (organism.direction == null)
         {
             Vector2 randomDirection =
-                UnityEngine.Random.insideUnitCircle.normalized;
+                Random.insideUnitCircle.normalized;
 
             organism.direction = new DirectionData
             {
@@ -86,11 +86,9 @@ public class ActionSystem
             };
         }
 
-        organism.direction.x +=
-            UnityEngine.Random.Range(-0.15f, 0.15f);
-
-        organism.direction.y +=
-            UnityEngine.Random.Range(-0.15f, 0.15f);
+        // Немного меняем направление
+        organism.direction.x += Random.Range(-0.15f, 0.15f);
+        organism.direction.y += Random.Range(-0.15f, 0.15f);
 
         Vector2 direction =
             new Vector2(
@@ -101,25 +99,23 @@ public class ActionSystem
         organism.direction.x = direction.x;
         organism.direction.y = direction.y;
 
-
+        // Скорость
         float speed =
-      5f +
-      organism.genome.movement * 10f;
+            5f + organism.genome.movement * 10f;
 
-
+        // ДВИЖЕНИЕ
         organism.position.x +=
-            direction.x * speed;
+            direction.x * speed * Time.deltaTime;
 
         organism.position.y +=
-            direction.y * speed;
+            direction.y * speed * Time.deltaTime;
 
-
+        // Границы
         float minX = 735f;
         float maxX = 1185f;
 
         float minY = 215f;
         float maxY = 865f;
-
 
         if (organism.position.x <= minX)
         {
@@ -134,7 +130,6 @@ public class ActionSystem
                 -Mathf.Abs(organism.direction.x);
         }
 
-
         if (organism.position.y <= minY)
         {
             organism.position.y = minY;
@@ -148,23 +143,20 @@ public class ActionSystem
                 -Mathf.Abs(organism.direction.y);
         }
 
-
         organism.state.energy -=
             1f + organism.genome.movement;
 
         organism.state.hunger += 2f;
         organism.state.age += 1f;
 
-
         float radiationDamage =
             environment.radiation *
             (1f - organism.genome.radiationResistance)
             * 4f;
 
-        organism.state.health -=
-            radiationDamage;
+        organism.state.health -= radiationDamage;
 
-        ClampState(organism);
+        ClampState(organism);ы
     }
 
     private void SearchResource(
@@ -238,6 +230,14 @@ public class ActionSystem
 
 
         ClampState(organism);
+    }
+    private void UpdateView()
+    {
+        transform.position = new Vector3(
+            Data.position.x / 100f,
+            Data.position.y / 100f,
+            0f
+        );
     }
 
     private bool CanReproduce(
