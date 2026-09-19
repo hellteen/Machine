@@ -386,8 +386,8 @@ Camera:
   m_GameObject: {fileID: 254040248}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.11536322, g: 0.11697071, b: 0.11949676, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -454,7 +454,6 @@ GameObject:
   - component: {fileID: 259707794}
   - component: {fileID: 259707793}
   - component: {fileID: 259707792}
-  - component: {fileID: 259707791}
   m_Layer: 0
   m_Name: Holo_Ring
   m_TagString: Untagged
@@ -462,28 +461,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &259707791
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259707790}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &259707792
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -509,7 +486,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e91e163661eb7624f8f1736ef2c49d06, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -549,12 +526,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259707790}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.9}
+  m_LocalScale: {x: 6, y: 6, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1313909960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &283920846
 PrefabInstance:
@@ -2029,11 +2006,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1505007551}
   - {fileID: 1476659188}
   - {fileID: 439593820}
   - {fileID: 283920847}
   - {fileID: 750051040}
+  - {fileID: 259707794}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1313909961
@@ -2495,6 +2472,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1476659197}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1476659201}
   m_SourcePrefab: {fileID: 100100000, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
 --- !u!4 &1476659188 stripped
 Transform:
@@ -2521,7 +2501,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -2552,6 +2532,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
   planetJson: {fileID: 4900000, guid: c4b5385f79b54684c8e9eb1be3bf4640, type: 3}
+--- !u!114 &1476659201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476659189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5a8c41bb8b97f44c8c31bc0c583c065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetClickEffect
+  backLight: {fileID: 1505007550}
+  baseLightIntensity: 4
+  flashLightIntensity: 18
+  holoRing: {fileID: 259707794}
+  ringRotateSpeed: 40
+  punchScaleAmount: 1.15
+  punchDuration: 0.35
 --- !u!1 &1505007549
 GameObject:
   m_ObjectHideFlags: 0
@@ -2562,6 +2561,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1505007551}
   - component: {fileID: 1505007550}
+  - component: {fileID: 1505007552}
   m_Layer: 0
   m_Name: Planet_Backlight
   m_TagString: Untagged
@@ -2579,9 +2579,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 13
   m_Type: 2
-  m_Color: {r: 0, g: 0.9411765, b: 1, a: 1}
-  m_Intensity: 8
-  m_Range: 8
+  m_Color: {r: 0.8616352, g: 0.61842936, b: 0.07857671, a: 0.2627451}
+  m_Intensity: 1.85
+  m_Range: 51
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize2D: {x: 0.5, y: 0.5}
@@ -2643,12 +2643,31 @@ Transform:
   m_GameObject: {fileID: 1505007549}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 7.7, z: -0.9000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1313909960}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1505007552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1505007549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96c1703622321304aafe92ca10932df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BacklightOrbit
+  targetCenter: {fileID: 1313909960}
+  orbitRadius: 10
+  orbitSpeed: 2
+  height: 2
+  baseIntensity: 1.85
+  pulseAmplitude: 0.4
+  pulseSpeed: 1.5
 --- !u!1 &1683992859
 GameObject:
   m_ObjectHideFlags: 0
@@ -3240,7 +3259,7 @@ SceneRoots:
   - {fileID: 254040251}
   - {fileID: 1294357753}
   - {fileID: 27446864}
+  - {fileID: 1505007551}
   - {fileID: 1313909960}
   - {fileID: 766039388}
   - {fileID: 599039079}
-  - {fileID: 259707794}
