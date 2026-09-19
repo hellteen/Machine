@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class EvolutionSystem
 {
-	using Random = UnityEngine.Random;
+	
 	// -----------------------------------------
 	// СОЗДАНИЕ СЛУЧАЙНОГО ГЕНОМА
 	// -----------------------------------------
