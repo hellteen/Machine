@@ -1,39 +1,70 @@
-using System.Collections;
+п»їusing System.Collections;
 using UnityEngine;
 using TMPro;
 
 public class PlanetCarousel : MonoBehaviour
 {
-    [Header("UI Ссылки")]
-    [SerializeField] private TMP_Text planetNameText;
+    [System.Serializable]
+    public struct PlanetStats
+    {
+        public string line1;
+        public string line2;
+        public string line3;
 
-    [Header("Объекты планет")]
-    [Tooltip("Перетащите сюда 4 планеты в том же порядке: Юпитер, Уран, Марс, Нептун")]
+        public PlanetStats(string l1, string l2, string l3)
+        {
+            line1 = l1;
+            line2 = l2;
+            line3 = l3;
+        }
+    }
+
+    [Header("UI РЎСЃС‹Р»РєРё (РљСѓРґР° РІС‹РІРѕРґРёС‚СЊ С‚РµРєСЃС‚)")]
+    [SerializeField] private TMP_Text planetNameText;
+    [Tooltip("РџРµСЂРµС‚Р°С‰РёС‚Рµ СЃСЋРґР° 1-СЋ СЃС‚СЂРѕС‡РєСѓ С‚РµРєСЃС‚Р° РёР· РєР°СЂС‚РѕС‡РєРё")]
+    public TMP_Text descText1;
+    [Tooltip("РџРµСЂРµС‚Р°С‰РёС‚Рµ СЃСЋРґР° 2-СЋ СЃС‚СЂРѕС‡РєСѓ С‚РµРєСЃС‚Р° РёР· РєР°СЂС‚РѕС‡РєРё")]
+    public TMP_Text descText2;
+    [Tooltip("РџРµСЂРµС‚Р°С‰РёС‚Рµ СЃСЋРґР° 3-СЋ СЃС‚СЂРѕС‡РєСѓ С‚РµРєСЃС‚Р° РёР· РєР°СЂС‚РѕС‡РєРё")]
+    public TMP_Text descText3;
+
+    [Header("РћР±СЉРµРєС‚С‹ РїР»Р°РЅРµС‚")]
+    [Tooltip("РџРµСЂРµС‚Р°С‰РёС‚Рµ СЃСЋРґР° 4 РїР»Р°РЅРµС‚С‹: Р®РїРёС‚РµСЂ, РЈСЂР°РЅ, РњР°СЂСЃ, РќРµРїС‚СѓРЅ")]
     [SerializeField] private Transform[] planets;
 
-    [Header("Настройки карусели")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё РєР°СЂСѓСЃРµР»Рё")]
     [SerializeField] private float rotationDuration = 0.7f;
     [SerializeField] private float stepAngle = 90f;
 
-    [Header("Анимация выбранной планеты")]
-    [Tooltip("Скорость собственного вращения планеты вокруг оси")]
+    [Header("РђРЅРёРјР°С†РёСЏ РІС‹Р±СЂР°РЅРЅРѕР№ РїР»Р°РЅРµС‚С‹")]
+    [Tooltip("РЎРєРѕСЂРѕСЃС‚СЊ СЃРѕР±СЃС‚РІРµРЅРЅРѕРіРѕ РІСЂР°С‰РµРЅРёСЏ РїР»Р°РЅРµС‚С‹ РІРѕРєСЂСѓРі РѕСЃРё")]
     [SerializeField] private float selfSpinSpeed = 25f;
 
-    [Tooltip("Масштаб активной планеты (для легкого акцента)")]
+    [Tooltip("РњР°СЃС€С‚Р°Р± Р°РєС‚РёРІРЅРѕР№ РїР»Р°РЅРµС‚С‹ (РґР»СЏ Р»РµРіРєРѕРіРѕ Р°РєС†РµРЅС‚Р°)")]
     [SerializeField] private float selectedScaleMultiplier = 1.15f;
     [SerializeField] private float scaleChangeSpeed = 5f;
 
-    [Header("Список названий")]
+    [Header("РЎРїРёСЃРѕРє РЅР°Р·РІР°РЅРёР№")]
     [SerializeField]
     private string[] planetNames = new string[]
     {
-        "Юпитер",
-        "Уран",
-        "Марс",
-        "Нептун"
+        "Р®РїРёС‚РµСЂ",
+        "РЈСЂР°РЅ",
+        "РњР°СЂСЃ",
+        "РќРµРїС‚СѓРЅ"
     };
 
-    public static string SelectedPlanetName { get; private set; } = "Юпитер";
+    [Header("РҐР°СЂР°РєС‚РµСЂРёСЃС‚РёРєРё РґР»СЏ РєР°Р¶РґРѕР№ РїР»Р°РЅРµС‚С‹")]
+    [SerializeField]
+    private PlanetStats[] planetStats = new PlanetStats[]
+    {
+        new PlanetStats("Р’Р«РЎРћРљРћР• Р”РђР’Р›Р•РќРР•", "РЎРР›Р¬РќРђРЇ Р РђР”РРђР¦РРЇ", "РўР•РњРџР•Р РђРўРЈР Рђ: -110 В°C"),
+        new PlanetStats("РўРРџ: Р›Р•Р”РЇРќРћР™ Р“РР“РђРќРў", "Р“Р РђР’РРўРђР¦РРЇ: 8.7 Рј/СЃВІ",  "РўР•РњРџР•Р РђРўРЈР Рђ: -195 В°C"),
+        new PlanetStats("РўРРџ: РџРЈРЎРўР«РќРќРђРЇ",      "Р“Р РђР’РРўРђР¦РРЇ: 3.7 Рј/СЃВІ",  "РўР•РњРџР•Р РђРўРЈР Рђ: -63 В°C"),
+        new PlanetStats("РўРРџ: Р›Р•Р”РЇРќРћР™ Р“РР“РђРќРў", "Р“Р РђР’РРўРђР¦РРЇ: 11.2 Рј/СЃВІ", "РўР•РњРџР•Р РђРўРЈР Рђ: -201 В°C")
+    };
+
+    public static string SelectedPlanetName { get; private set; } = "Р®РїРёС‚РµСЂ";
 
     private int currentIndex = 0;
     private bool isRotating = false;
@@ -44,7 +75,6 @@ public class PlanetCarousel : MonoBehaviour
     {
         targetYAngle = transform.eulerAngles.y;
 
-        // Сохраняем исходные размеры моделей
         if (planets != null && planets.Length > 0)
         {
             initialScales = new Vector3[planets.Length];
@@ -70,15 +100,16 @@ public class PlanetCarousel : MonoBehaviour
         {
             RotateLeft();
         }
+
         if (planets == null || planets.Length == 0) return;
 
-        // 1. Вращаем только выбранную центральную планету вокруг своей оси
+        // Р’СЂР°С‰Р°РµРј С†РµРЅС‚СЂР°Р»СЊРЅСѓСЋ РІС‹Р±СЂР°РЅРЅСѓСЋ РїР»Р°РЅРµС‚Сѓ
         if (planets[currentIndex] != null)
         {
             planets[currentIndex].Rotate(Vector3.up, selfSpinSpeed * Time.deltaTime, Space.World);
         }
 
-        // 2. Плавно приближаем выбранную планету по размеру, а остальные держим в обычном масштабе
+        // РџР»Р°РІРЅРѕ РїСЂРёР±Р»РёР¶Р°РµРј РІС‹Р±СЂР°РЅРЅСѓСЋ РїР»Р°РЅРµС‚Сѓ РїРѕ СЂР°Р·РјРµСЂСѓ
         for (int i = 0; i < planets.Length; i++)
         {
             if (planets[i] == null) continue;
@@ -124,6 +155,14 @@ public class PlanetCarousel : MonoBehaviour
         if (planetNameText != null)
         {
             planetNameText.text = SelectedPlanetName;
+        }
+
+        // РћР±РЅРѕРІР»СЏРµРј 3 РїРѕР»СЏ С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРє
+        if (planetStats != null && currentIndex < planetStats.Length)
+        {
+            if (descText1 != null) descText1.text = planetStats[currentIndex].line1;
+            if (descText2 != null) descText2.text = planetStats[currentIndex].line2;
+            if (descText3 != null) descText3.text = planetStats[currentIndex].line3;
         }
     }
 
