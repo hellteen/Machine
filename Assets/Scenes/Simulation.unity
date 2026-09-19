@@ -890,6 +890,52 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &482637875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 482637876}
+  - component: {fileID: 482637877}
+  m_Layer: 0
+  m_Name: SimulationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &482637876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482637875}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -287.5257, y: -0.00001, z: 23008.242}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &482637877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482637875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc55e6ae3b884f4a887991e65629c97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SimulationManager
+  planetJson: {fileID: 0}
+  tickInterval: 1
 --- !u!1 &487202395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1988,8 +2034,36 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7339708677302245453, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 882134258}
   m_SourcePrefab: {fileID: 100100000, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+--- !u!1 &882134256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7339708677302245453, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+  m_PrefabInstance: {fileID: 882134255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &882134257 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+  m_PrefabInstance: {fileID: 882134255}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &882134258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882134256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebb4363a10ce6c42a47a2283627c623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopulationRenderer
+  simulation: {fileID: 482637877}
+  organismPrefab: {fileID: 7339708677302245453, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+  organismParent: {fileID: 882134257}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4686,3 +4760,4 @@ SceneRoots:
   - {fileID: 1181452288}
   - {fileID: 782621458}
   - {fileID: 882134255}
+  - {fileID: 482637876}
