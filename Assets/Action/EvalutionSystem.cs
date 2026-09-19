@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class EvolutionSystem
 {
+	using Random = UnityEngine.Random;
 	// -----------------------------------------
 	// СОЗДАНИЕ СЛУЧАЙНОГО ГЕНОМА
 	// -----------------------------------------

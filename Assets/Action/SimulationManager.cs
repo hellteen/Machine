@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimulationManager : MonoBehaviour
 {
+	using Random = UnityEngine.Random;
 	// JSON с начальными условиями планеты.
 	[SerializeField]
 	private TextAsset planetJson;

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class ActionSystem
 {
+    using Random = UnityEngine.Random;
     public bool Execute(
         OrganismData organism,
         EnvironmentData environment,
