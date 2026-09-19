@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class SimulationManager : MonoBehaviour
 {
-	using Random = UnityEngine.Random;
+
 	// JSON с начальными условиями планеты.
 	[SerializeField]
 	private TextAsset planetJson;
