@@ -513,13 +513,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 283920850}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 283920849}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 283920853}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283920857}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 283920856}
   m_SourcePrefab: {fileID: 100100000, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
 --- !u!4 &283920847 stripped
 Transform:
@@ -531,31 +531,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7ebec84822535ae42a4e388827e66881, type: 3}
   m_PrefabInstance: {fileID: 283920846}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &283920849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283920848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168df2bb9d0078b4aaa6db052dab7ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
---- !u!114 &283920850
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283920848}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5222f0199c7d5eb43b5bd3bf2f2df8b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
-  planetJson: {fileID: 4900000, guid: 66aac101a030aba47971bdad850747af, type: 3}
 --- !u!135 &283920853
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -577,6 +552,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0100000035
   m_Center: {x: -9.313226e-10, y: 0.0000000013969843, z: -1.9852335e-23}
+--- !u!114 &283920856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283920848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+--- !u!114 &283920857
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283920848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81c4e8d519208242a935bfffb075474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
+  planetJson: {fileID: 4900000, guid: 66aac101a030aba47971bdad850747af, type: 3}
 --- !u!1001 &439593819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -647,13 +647,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 439593823}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 439593822}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 439593826}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 439593830}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 439593829}
   m_SourcePrefab: {fileID: 100100000, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
 --- !u!4 &439593820 stripped
 Transform:
@@ -665,31 +665,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 39d001ea5020f914496f27bb99fccddb, type: 3}
   m_PrefabInstance: {fileID: 439593819}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &439593822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439593821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168df2bb9d0078b4aaa6db052dab7ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
---- !u!114 &439593823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439593821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5222f0199c7d5eb43b5bd3bf2f2df8b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
-  planetJson: {fileID: 4900000, guid: d4487864a80feb641b8fe23b4eb2a26d, type: 3}
 --- !u!135 &439593826
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -711,6 +686,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.010000003
   m_Center: {x: -9.313226e-10, y: 0.0000000013969842, z: 0}
+--- !u!114 &439593829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439593821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+--- !u!114 &439593830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 439593821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81c4e8d519208242a935bfffb075474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
+  planetJson: {fileID: 4900000, guid: d4487864a80feb641b8fe23b4eb2a26d, type: 3}
 --- !u!1 &482704801
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &482704802
 RectTransform:
   m_ObjectHideFlags: 0
@@ -885,7 +885,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 738, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &537356067
 MonoBehaviour:
@@ -963,8 +963,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2208510542369132325, guid: c7459f875b27b344cb29b360bd042d3b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -990,7 +990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 599039079}
-  - component: {fileID: 599039078}
+  - component: {fileID: 599039080}
   m_Layer: 0
   m_Name: PlanetSelectionManager
   m_TagString: Untagged
@@ -998,19 +998,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &599039078
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599039077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73ab2d8ac7277fb49b4631f943a31be4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelectionManager
-  targetSceneName: Simulation
 --- !u!4 &599039079
 Transform:
   m_ObjectHideFlags: 0
@@ -1026,6 +1013,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599039080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599039077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0801df6bb40094aaa5ec6a12494524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelectionManager
+  targetSceneName: Simulation
 --- !u!1001 &750051039
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1096,13 +1096,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 750051043}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 750051042}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 750051046}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 750051050}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 750051049}
   m_SourcePrefab: {fileID: 100100000, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
 --- !u!4 &750051040 stripped
 Transform:
@@ -1114,31 +1114,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9c473d3d0d1d955428b99a093ae842d5, type: 3}
   m_PrefabInstance: {fileID: 750051039}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &750051042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750051041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168df2bb9d0078b4aaa6db052dab7ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
---- !u!114 &750051043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750051041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5222f0199c7d5eb43b5bd3bf2f2df8b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
-  planetJson: {fileID: 4900000, guid: 5967db65f3f1bc24ea83eba487e965ce, type: 3}
 --- !u!135 &750051046
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1160,6 +1135,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0100000035
   m_Center: {x: -9.313226e-10, y: 0.0000000013969843, z: -1.9852335e-23}
+--- !u!114 &750051049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750051041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+--- !u!114 &750051050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750051041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81c4e8d519208242a935bfffb075474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
+  planetJson: {fileID: 4900000, guid: 5967db65f3f1bc24ea83eba487e965ce, type: 3}
 --- !u!1 &752610958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1440,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -738, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &893802622
 MonoBehaviour:
@@ -1518,8 +1518,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -2208510542369132325, guid: c7459f875b27b344cb29b360bd042d3b, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2125,8 +2125,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -772.7, y: 72.2}
-  m_SizeDelta: {x: 350, y: 60}
+  m_AnchoredPosition: {x: -762.5, y: 72.2}
+  m_SizeDelta: {x: 350, y: 88.7}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1407912078
 MonoBehaviour:
@@ -2184,7 +2184,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 599039078}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlanetSelectionManager, Assembly-CSharp
         m_MethodName: StartSimulation
         m_Mode: 1
@@ -2216,8 +2216,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 3980168229369012863, guid: 96c280b41942235458bab174a84025cb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2317,13 +2317,13 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1476659191}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1476659190}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1476659194}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1476659198}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1476659197}
   m_SourcePrefab: {fileID: 100100000, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
 --- !u!4 &1476659188 stripped
 Transform:
@@ -2335,31 +2335,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2fe86adc3ab819a49b5903012375b5ce, type: 3}
   m_PrefabInstance: {fileID: 1476659187}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1476659190
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476659189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 168df2bb9d0078b4aaa6db052dab7ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
---- !u!114 &1476659191
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1476659189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5222f0199c7d5eb43b5bd3bf2f2df8b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
-  planetJson: {fileID: 4900000, guid: c4b5385f79b54684c8e9eb1be3bf4640, type: 3}
 --- !u!135 &1476659194
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2381,6 +2356,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.0100000035
   m_Center: {x: -9.313226e-10, y: 0.0000000013969843, z: 0}
+--- !u!114 &1476659197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476659189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+--- !u!114 &1476659198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476659189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f81c4e8d519208242a935bfffb075474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetSelection
+  planetJson: {fileID: 4900000, guid: c4b5385f79b54684c8e9eb1be3bf4640, type: 3}
 --- !u!1 &1683992859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,7 +2845,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2110405945
 RectTransform:
   m_ObjectHideFlags: 0
