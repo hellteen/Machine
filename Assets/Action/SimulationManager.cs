@@ -7,7 +7,7 @@ using Debug = UnityEngine.Debug;
 public class SimulationManager : MonoBehaviour
 {
     [SerializeField]
-    private float tickInterval = 1f;
+    private float tickInterval = 0.25f;
 
     public PlanetData Planet
     {

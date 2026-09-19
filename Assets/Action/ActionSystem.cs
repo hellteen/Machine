@@ -101,21 +101,20 @@ public class ActionSystem
 
         // Скорость
         float speed =
-            5f + organism.genome.movement * 10f;
-
+            0.5f + organism.genome.movement * 1f;
         // ДВИЖЕНИЕ
         organism.position.x +=
-            direction.x * speed * Time.deltaTime;
+    direction.x * speed;
 
         organism.position.y +=
-            direction.y * speed * Time.deltaTime;
+            direction.y * speed;
 
-        // Границы
-        float minX = 0f;
-        float maxX = -1185f;
+        //границы
+        float minX = -6f;
+        float maxX = 6f;
 
-        float minY = 0f;
-        float maxY = -865f;
+        float minY = -3f;
+        float maxY = 3f;
 
         if (organism.position.x <= minX)
         {
