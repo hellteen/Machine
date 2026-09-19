@@ -61,7 +61,7 @@ public class PlanetCarousel : MonoBehaviour
         new PlanetStats("ВЫСОКОЕ ДАВЛЕНИЕ", "СИЛЬНАЯ РАДИАЦИЯ", "ТЕМПЕРАТУРА: -110 °C"),
         new PlanetStats("СИЛЬНОЕ ДАВЛЕНИЕ", "ОГРАНИЧЕННЫЕ РЕСУРСЫ",  "ТЕМПЕРАТУРА: -195 °C"),
         new PlanetStats("НИЗКОЕ ДАВЛЕНИЕ",      "ОГРАНИЧЕННЫЕ РЕСУРСЫ",  "ТЕМПЕРАТУРА: -63 °C"),
-        new PlanetStats("ТИП: ЛЕДЯНОЙ ГИГАНТ", "ГРАВИТАЦИЯ: 11.2 м/с²", "ТЕМПЕРАТУРА: -201 °C")
+        new PlanetStats("НЕОБЫЧНЫЕ ПРИРОДНЫЕ УСЛОВИЯ", "УМЕРЕННЫЕ РЕСУРСЫ", "ТЕМПЕРАТУРА: -201 °C")
     };
 
     public static string SelectedPlanetName { get; private set; } = "Юпитер";
