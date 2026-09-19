@@ -2,199 +2,135 @@ using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-// -----------------------------------------
-// ВОЗМОЖНЫЕ ДЕЙСТВИЯ
-// -----------------------------------------
-
 public enum OrganismAction
 {
-	Move,
-	SearchResource,
-	Wait,
-	Reproduce
+    Move,
+    SearchResource,
+    Wait,
+    Reproduce
 }
-
-
-// -----------------------------------------
-// РЕЗУЛЬТАТ РЕШЕНИЯ
-// -----------------------------------------
 
 public class DecisionResult
 {
-	public OrganismAction action;
+    public OrganismAction action;
 
-	public float moveScore;
-	public float searchScore;
-	public float waitScore;
-	public float reproduceScore;
+    public float moveScore;
+    public float searchScore;
+    public float waitScore;
+    public float reproduceScore;
 
-	public string reason;
+    public string reason;
 }
-
-
-// -----------------------------------------
-// ДВИЖОК ПРИНЯТИЯ РЕШЕНИЙ
-// -----------------------------------------
 
 public class DecisionEngine
 {
-	public DecisionResult MakeDecision(
-		OrganismData organism,
-		EnvironmentData environment)
-	{
-		GenomeData genome =
-			organism.genome;
+    public DecisionResult MakeDecision(
+        OrganismData organism,
+        EnvironmentData environment)
+    {
+        GenomeData genome =
+            organism.genome;
 
-		StateData state =
-			organism.state;
+        StateData state =
+            organism.state;
 
+        float moveScore =
+            Random.Range(0f, 1f);
 
-		// -------------------------------------
-		// НАЧАЛЬНЫЕ СЛУЧАЙНЫЕ ЗНАЧЕНИЯ
-		// -------------------------------------
+        float searchScore =
+            Random.Range(0f, 1f);
 
-		float moveScore =
-			Random.Range(0f, 1f);
+        float waitScore =
+            Random.Range(0f, 1f);
 
-		float searchScore =
-			Random.Range(0f, 1f);
+        float reproduceScore =
+            Random.Range(0f, 1f);
 
-		float waitScore =
-			Random.Range(0f, 1f);
+        moveScore +=
+            genome.movement *
+            genome.exploration;
 
-		float reproduceScore =
-			Random.Range(0f, 1f);
+        searchScore +=
+            genome.resourceSeeking;
 
+        waitScore +=
+            genome.waiting;
 
-		// -------------------------------------
-		// ВЛИЯНИЕ ГЕНОВ
-		// -------------------------------------
+        reproduceScore +=
+            genome.reproduction;
 
-		moveScore +=
-			genome.movement *
-			genome.exploration;
+        searchScore +=
+            state.hunger / 100f;
 
-		searchScore +=
-			genome.resourceSeeking;
+        waitScore +=
+            (1f - state.energy / 100f);
 
-		waitScore +=
-			genome.waiting;
+        moveScore +=
+            environment.radiation *
+            (1f - genome.radiationResistance);
 
-		reproduceScore +=
-			genome.reproduction;
+        searchScore +=
+            environment.resources / 1000f *
+            genome.resourceSeeking;
 
+        moveScore +=
+            Random.Range(-0.3f, 0.3f);
 
-		// -------------------------------------
-		// ВЛИЯНИЕ СОСТОЯНИЯ
-		// -------------------------------------
+        searchScore +=
+            Random.Range(-0.3f, 0.3f);
 
-		// Чем выше голод,
-		// тем больше вероятность поиска ресурсов.
-		searchScore +=
-			state.hunger / 100f;
+        waitScore +=
+            Random.Range(-0.3f, 0.3f);
 
+        reproduceScore +=
+            Random.Range(-0.3f, 0.3f);
 
-		// Чем меньше энергии,
-		// тем привлекательнее ожидание.
-		waitScore +=
-			(1f - state.energy / 100f);
+        OrganismAction action =
+            OrganismAction.Move;
 
+        float maxScore =
+            moveScore;
 
-		// -------------------------------------
-		// ВЛИЯНИЕ СРЕДЫ
-		// -------------------------------------
+        if (searchScore > maxScore)
+        {
+            maxScore = searchScore;
 
-		// Высокая радиация делает движение
-		// более привлекательным.
-		moveScore +=
-			environment.radiation *
-			(1f - genome.radiationResistance);
+            action =
+                OrganismAction.SearchResource;
+        }
 
+        if (waitScore > maxScore)
+        {
+            maxScore = waitScore;
 
-		// Чем больше ресурсов,
-		// тем интереснее их искать.
-		searchScore +=
-			environment.resources / 1000f *
-			genome.resourceSeeking;
+            action =
+                OrganismAction.Wait;
+        }
 
+        if (reproduceScore > maxScore)
+        {
+            maxScore =
+                reproduceScore;
 
-		// -------------------------------------
-		// СЛУЧАЙНЫЙ ШУМ
-		// -------------------------------------
+            action =
+                OrganismAction.Reproduce;
+        }
 
-		// Даже при одинаковых условиях
-		// организм не обязан делать одно и то же.
-		moveScore +=
-			Random.Range(-0.3f, 0.3f);
+        return new DecisionResult
+        {
+            action = action,
 
-		searchScore +=
-			Random.Range(-0.3f, 0.3f);
+            moveScore = moveScore,
 
-		waitScore +=
-			Random.Range(-0.3f, 0.3f);
+            searchScore = searchScore,
 
-		reproduceScore +=
-			Random.Range(-0.3f, 0.3f);
+            waitScore = waitScore,
 
+            reproduceScore =
+                reproduceScore,
 
-		// -------------------------------------
-		// ВЫБИРАЕМ ЛУЧШИЙ SCORE
-		// -------------------------------------
-
-		OrganismAction action =
-			OrganismAction.Move;
-
-		float maxScore =
-			moveScore;
-
-
-		if (searchScore > maxScore)
-		{
-			maxScore = searchScore;
-
-			action =
-				OrganismAction.SearchResource;
-		}
-
-
-		if (waitScore > maxScore)
-		{
-			maxScore = waitScore;
-
-			action =
-				OrganismAction.Wait;
-		}
-
-
-		if (reproduceScore > maxScore)
-		{
-			maxScore =
-				reproduceScore;
-
-			action =
-				OrganismAction.Reproduce;
-		}
-
-
-		// -------------------------------------
-		// РЕЗУЛЬТАТ
-		// -------------------------------------
-
-		return new DecisionResult
-		{
-			action = action,
-
-			moveScore = moveScore,
-
-			searchScore = searchScore,
-
-			waitScore = waitScore,
-
-			reproduceScore =
-				reproduceScore,
-
-			reason =
-				"Action received the highest score"
-		};
-	}
+            reason =
+                "Action received the highest score"
+        };
+    }
 }

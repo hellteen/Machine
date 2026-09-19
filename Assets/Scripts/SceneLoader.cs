@@ -6,7 +6,6 @@ public class SceneLoader : MonoBehaviour
     [Tooltip("Название сцены, на которую нужно перейти")]
     [SerializeField] private string targetSceneName = "Simulation";
 
-    // Метод для вызова по нажатию кнопки
     public void LoadSimulationScene()
     {
         SceneManager.LoadScene(targetSceneName);

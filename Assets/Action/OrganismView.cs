@@ -2,54 +2,37 @@ using UnityEngine;
 
 public class OrganismView : MonoBehaviour
 {
-	// Данные организма,
-	// которому соответствует этот GameObject.
-	public OrganismData Data
-	{
-		get;
-		private set;
-	}
+    public OrganismData Data
+    {
+        get;
+        private set;
+    }
 
+    public void Initialize(
+        OrganismData data)
+    {
+        Data = data;
 
-	// -----------------------------------------
-	// ПОДКЛЮЧЕНИЕ ДАННЫХ
-	// -----------------------------------------
+        UpdateView();
+    }
 
-	public void Initialize(
-		OrganismData data)
-	{
-		Data = data;
+    private void Update()
+    {
+        if (Data == null)
+        {
+            return;
+        }
 
-		UpdateView();
-	}
+        UpdateView();
+    }
 
-
-	// -----------------------------------------
-	// UPDATE
-	// -----------------------------------------
-
-	private void Update()
-	{
-		if (Data == null)
-		{
-			return;
-		}
-
-		UpdateView();
-	}
-
-
-	// -----------------------------------------
-	// ОБНОВЛЕНИЕ ВИДА
-	// -----------------------------------------
-
-	private void UpdateView()
-	{
-		transform.position =
-			new Vector3(
-				Data.position.x,
-				Data.position.y,
-				Data.position.z
-			);
-	}
+    private void UpdateView()
+    {
+        transform.position =
+            new Vector3(
+                Data.position.x,
+                Data.position.y,
+                Data.position.z
+            );
+    }
 }

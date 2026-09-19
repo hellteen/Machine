@@ -21,15 +21,15 @@ public class PlanetCarousel : MonoBehaviour
 
     [Header("UI Ссылки (Куда выводить текст)")]
     [SerializeField] private TMP_Text planetNameText;
-    [Tooltip("Перетащите сюда 1-ю строчку текста из карточки")]
+   
     public TMP_Text descText1;
-    [Tooltip("Перетащите сюда 2-ю строчку текста из карточки")]
+    
     public TMP_Text descText2;
-    [Tooltip("Перетащите сюда 3-ю строчку текста из карточки")]
+    
     public TMP_Text descText3;
 
     [Header("Объекты планет")]
-    [Tooltip("Перетащите сюда 4 планеты: Юпитер, Уран, Марс, Нептун")]
+  
     [SerializeField] private Transform[] planets;
 
     [Header("Настройки карусели")]
@@ -103,13 +103,13 @@ public class PlanetCarousel : MonoBehaviour
 
         if (planets == null || planets.Length == 0) return;
 
-        // Вращаем центральную выбранную планету
+        
         if (planets[currentIndex] != null)
         {
             planets[currentIndex].Rotate(Vector3.up, selfSpinSpeed * Time.deltaTime, Space.World);
         }
 
-        // Плавно приближаем выбранную планету по размеру
+        
         for (int i = 0; i < planets.Length; i++)
         {
             if (planets[i] == null) continue;
@@ -157,7 +157,7 @@ public class PlanetCarousel : MonoBehaviour
             planetNameText.text = SelectedPlanetName;
         }
 
-        // Обновляем 3 поля характеристик
+        
         if (planetStats != null && currentIndex < planetStats.Length)
         {
             if (descText1 != null) descText1.text = planetStats[currentIndex].line1;

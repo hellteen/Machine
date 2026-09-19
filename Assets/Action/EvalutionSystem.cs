@@ -4,64 +4,49 @@ using Random = UnityEngine.Random;
 
 public class EvolutionSystem
 {
-	
-	// -----------------------------------------
-	// СОЗДАНИЕ СЛУЧАЙНОГО ГЕНОМА
-	// -----------------------------------------
+    public GenomeData CreateRandomGenome()
+    {
+        return new GenomeData
+        {
+            movement = Random.value,
 
-	public GenomeData CreateRandomGenome()
-	{
-		return new GenomeData
-		{
-			movement = Random.value,
+            resourceSeeking = Random.value,
 
-			resourceSeeking = Random.value,
+            reproduction = Random.value,
 
-			reproduction = Random.value,
+            waiting = Random.value,
 
-			waiting = Random.value,
+            radiationResistance = Random.value,
 
-			radiationResistance = Random.value,
+            coldResistance = Random.value,
 
-			coldResistance = Random.value,
+            exploration = Random.value
+        };
+    }
 
-			exploration = Random.value
-		};
-	}
+    public OrganismData CreateOffspring(
+        OrganismData parent)
+    {
+        OrganismData child =
+            new OrganismData();
 
+        child.id =
+            Random.Range(100000, 999999);
 
-	// -----------------------------------------
-	// СОЗДАНИЕ ПОТОМКА
-	// -----------------------------------------
+        child.position =
+            new PositionData
+            {
+                x = parent.position.x +
+                    Random.Range(-2f, 2f),
 
-	public OrganismData CreateOffspring(
-		OrganismData parent)
-	{
-		OrganismData child =
-			new OrganismData();
+                y = parent.position.y,
 
-		// У каждого организма свой ID.
-		child.id =
-			Random.Range(100000, 999999);
+                z = parent.position.z +
+                    Random.Range(-2f, 2f)
+            };
 
-
-		// -------------------------------------
-		// ПОЗИЦИЯ
-		// -------------------------------------
-
-		child.position =
-			new PositionData
-			{
-				x = parent.position.x +
-					Random.Range(-2f, 2f),
-
-				y = parent.position.y,
-
-				z = parent.position.z +
-					Random.Range(-2f, 2f)
-			};
         Vector2 randomDirection =
-    UnityEngine.Random.insideUnitCircle.normalized;
+            UnityEngine.Random.insideUnitCircle.normalized;
 
         child.direction =
             new DirectionData
@@ -70,117 +55,88 @@ public class EvolutionSystem
                 y = randomDirection.y
             };
 
-        // -------------------------------------
-        // НАЧАЛЬНОЕ СОСТОЯНИЕ
-        // -------------------------------------
-
         child.state =
-			new StateData
-			{
-				health = 100f,
-				energy = 50f,
-				age = 0f,
-				hunger = 0f
-			};
+            new StateData
+            {
+                health = 100f,
+                energy = 50f,
+                age = 0f,
+                hunger = 0f
+            };
 
+        child.genome =
+            new GenomeData
+            {
+                movement =
+                    Mutate(parent.genome.movement),
 
-		// -------------------------------------
-		// ГЕНЫ
-		// -------------------------------------
+                resourceSeeking =
+                    Mutate(parent.genome.resourceSeeking),
 
-		// Потомок получает гены родителя,
-		// но каждый ген может немного измениться.
-		child.genome =
-			new GenomeData
-			{
-				movement =
-					Mutate(parent.genome.movement),
+                reproduction =
+                    Mutate(parent.genome.reproduction),
 
-				resourceSeeking =
-					Mutate(parent.genome.resourceSeeking),
+                waiting =
+                    Mutate(parent.genome.waiting),
 
-				reproduction =
-					Mutate(parent.genome.reproduction),
+                radiationResistance =
+                    Mutate(
+                        parent.genome.radiationResistance
+                    ),
 
-				waiting =
-					Mutate(parent.genome.waiting),
+                coldResistance =
+                    Mutate(
+                        parent.genome.coldResistance
+                    ),
 
-				radiationResistance =
-					Mutate(
-						parent.genome.radiationResistance
-					),
+                exploration =
+                    Mutate(parent.genome.exploration)
+            };
 
-				coldResistance =
-					Mutate(
-						parent.genome.coldResistance
-					),
+        child.sensors =
+            new SensorData
+            {
+                visionRange =
+                    Mutate(
+                        parent.sensors.visionRange
+                    ),
 
-				exploration =
-					Mutate(parent.genome.exploration)
-			};
+                temperatureSensitivity =
+                    Mutate(
+                        parent.sensors
+                            .temperatureSensitivity
+                    ),
 
+                radiationSensitivity =
+                    Mutate(
+                        parent.sensors
+                            .radiationSensitivity
+                    ),
 
-		// -------------------------------------
-		// ДАТЧИКИ
-		// -------------------------------------
+                resourceSensitivity =
+                    Mutate(
+                        parent.sensors
+                            .resourceSensitivity
+                    )
+            };
 
-		child.sensors =
-			new SensorData
-			{
-				visionRange =
-					Mutate(
-						parent.sensors.visionRange
-					),
+        child.memory =
+            new MemoryData
+            {
+                capacity =
+                    parent.memory.capacity
+            };
 
-				temperatureSensitivity =
-					Mutate(
-						parent.sensors
-							.temperatureSensitivity
-					),
+        return child;
+    }
 
-				radiationSensitivity =
-					Mutate(
-						parent.sensors
-							.radiationSensitivity
-					),
+    private float Mutate(float value)
+    {
+        float mutation =
+            Random.Range(-0.15f, 0.15f);
 
-				resourceSensitivity =
-					Mutate(
-						parent.sensors
-							.resourceSensitivity
-					)
-			};
-
-
-		// -------------------------------------
-		// ПАМЯТЬ
-		// -------------------------------------
-
-		child.memory =
-			new MemoryData
-			{
-				capacity =
-					parent.memory.capacity
-			};
-
-
-		return child;
-	}
-
-
-	// -----------------------------------------
-	// МУТАЦИЯ
-	// -----------------------------------------
-
-	private float Mutate(float value)
-	{
-		// Небольшое случайное изменение.
-		float mutation =
-			Random.Range(-0.15f, 0.15f);
-
-		// Значение остаётся между 0 и 1.
-		return Mathf.Clamp01(
-			value + mutation
-		);
-	}
+        return Mathf.Clamp01(
+            value + mutation
+        );
+    }
 }

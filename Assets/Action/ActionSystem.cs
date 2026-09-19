@@ -5,7 +5,6 @@ using Debug = UnityEngine.Debug;
 
 public class ActionSystem
 {
-   
     public bool Execute(
         OrganismData organism,
         EnvironmentData environment,
@@ -52,9 +51,6 @@ public class ActionSystem
                     return true;
                 }
 
-                // Если организм захотел размножиться,
-                // но недостаточно сил,
-                // он просто ждёт.
                 Wait(
                     organism,
                     environment
@@ -65,11 +61,6 @@ public class ActionSystem
 
         return false;
     }
-
-
-    // -----------------------------------------
-    // ДВИЖЕНИЕ
-    // -----------------------------------------
 
     private void Move(
      OrganismData organism,
@@ -83,8 +74,7 @@ public class ActionSystem
     ", " +
     organism.position.y
 );
-     // Если направления ещё нет — создаём его.
-    if (organism.direction == null)
+        if (organism.direction == null)
         {
             Vector2 randomDirection =
                 UnityEngine.Random.insideUnitCircle.normalized;
@@ -96,15 +86,12 @@ public class ActionSystem
             };
         }
 
-        // Немного меняем направление,
-        // чтобы движение оставалось хаотичным.
         organism.direction.x +=
             UnityEngine.Random.Range(-0.15f, 0.15f);
 
         organism.direction.y +=
             UnityEngine.Random.Range(-0.15f, 0.15f);
 
-        // Нормализуем направление.
         Vector2 direction =
             new Vector2(
                 organism.direction.x,
@@ -115,13 +102,11 @@ public class ActionSystem
         organism.direction.y = direction.y;
 
 
-        // Скорость.
         float speed =
       5f +
       organism.genome.movement * 10f;
 
 
-        // Движение.
         organism.position.x +=
             direction.x * speed;
 
@@ -129,7 +114,6 @@ public class ActionSystem
             direction.y * speed;
 
 
-        // Границы области движения.
         float minX = -400f;
         float maxX = 400f;
 
@@ -137,7 +121,6 @@ public class ActionSystem
         float maxY = 250f;
 
 
-        // Отскок от левой/правой границы.
         if (organism.position.x <= minX)
         {
             organism.position.x = minX;
@@ -152,7 +135,6 @@ public class ActionSystem
         }
 
 
-        // Отскок от верхней/нижней границы.
         if (organism.position.y <= minY)
         {
             organism.position.y = minY;
@@ -167,7 +149,6 @@ public class ActionSystem
         }
 
 
-        // Организм тратит энергию.
         organism.state.energy -=
             1f + organism.genome.movement;
 
@@ -175,7 +156,6 @@ public class ActionSystem
         organism.state.age += 1f;
 
 
-        // Урон от радиации.
         float radiationDamage =
             environment.radiation *
             (1f - organism.genome.radiationResistance)
@@ -186,10 +166,6 @@ public class ActionSystem
 
         ClampState(organism);
     }
-
-    // -----------------------------------------
-    // ПОИСК РЕСУРСОВ
-    // -----------------------------------------
 
     private void SearchResource(
         OrganismData organism,
@@ -240,11 +216,6 @@ public class ActionSystem
         ClampState(organism);
     }
 
-
-    // -----------------------------------------
-    // ОЖИДАНИЕ
-    // -----------------------------------------
-
     private void Wait(
         OrganismData organism,
         EnvironmentData environment)
@@ -269,11 +240,6 @@ public class ActionSystem
         ClampState(organism);
     }
 
-
-    // -----------------------------------------
-    // ПРОВЕРКА РАЗМНОЖЕНИЯ
-    // -----------------------------------------
-
     private bool CanReproduce(
         OrganismData organism)
     {
@@ -282,11 +248,6 @@ public class ActionSystem
             organism.state.health >= 50f &&
             organism.state.age >= 10f;
     }
-
-
-    // -----------------------------------------
-    // РАЗМНОЖЕНИЕ
-    // -----------------------------------------
 
     private void Reproduce(
         OrganismData organism)
@@ -297,11 +258,6 @@ public class ActionSystem
 
         ClampState(organism);
     }
-
-
-    // -----------------------------------------
-    // ОГРАНИЧЕНИЕ ЗНАЧЕНИЙ
-    // -----------------------------------------
 
     private void ClampState(
         OrganismData organism)

@@ -42,7 +42,7 @@ public class PlanetSelectionManager : MonoBehaviour
     // ЗАПУСК СИМУЛЯЦИИ
     // -----------------------------------------
 
-public void StartSimulation()
+    public void StartSimulation()
     {
         Debug.Log("=== START SIMULATION CLICKED ===");
 

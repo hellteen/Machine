@@ -17,7 +17,7 @@ public class Effect_button : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public float speed = 12f;
 
     [Header("Настройки подсветки")]
-    // Светло-голубой/неоновый оттенок по умолчанию (подходит под ледяной стиль)
+   
     public Color hoverColor = new Color(0.7f, 0.95f, 1f, 1f);
     public Color clickColor = new Color(0.8f, 0.8f, 0.8f, 1f);
 
@@ -40,10 +40,10 @@ public class Effect_button : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Update()
     {
-        // Плавный зум
+        
         transform.localScale = Vector3.Lerp(transform.localScale, tarScale, Time.deltaTime * speed);
 
-        // Плавная подсветка
+        
         if (btnImage != null)
         {
             btnImage.color = Color.Lerp(btnImage.color, tarColor, Time.deltaTime * speed);

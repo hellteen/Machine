@@ -6,332 +6,231 @@ using Debug = UnityEngine.Debug;
 
 public class SimulationManager : MonoBehaviour
 {
-
-
-
-	// Интервал между шагами симуляции.
-	// 1 = один тик в секунду.
-	[SerializeField]
-	private float tickInterval = 1f;
-
-
-	// Текущая планета.
-	public PlanetData Planet
-	{
-		get;
-		private set;
-	}
-
-
-	// Последнее принятое решение.
-	public DecisionResult LastDecision
-	{
-		get;
-		private set;
-	}
-
-
-	private DecisionEngine decisionEngine;
-
-	private ActionSystem actionSystem;
-
-	private EvolutionSystem evolutionSystem;
-
-
-	private float tickTimer;
-
-
-	// -----------------------------------------
-	// START
-	// -----------------------------------------
-
-	
-private void Start()
-	{
-		decisionEngine =
-			new DecisionEngine();
-
-		actionSystem =
-			new ActionSystem();
-
-		evolutionSystem =
-			new EvolutionSystem();
-
-
-		LoadPlanet();
-
-
-		// Если JSON не загрузился,
-		// дальше симуляцию не запускаем.
-		if (Planet == null)
-		{
-			Debug.LogError(
-				"Simulation stopped: planet was not loaded."
-			);
-
-			return;
-		}
-
-
-		InitializePopulation();
-
-
-		// Проверяем, сколько организмов
-		// реально загрузилось из JSON.
-		Debug.Log(
-			"Initial population: " +
-			Planet.organisms.Count
-		);
-	}
-
-
-
-
-	// -----------------------------------------
-	// UPDATE
-	// -----------------------------------------
-
-	private void Update()
-	{
-		tickTimer +=
-			Time.deltaTime;
-
-
-		if (tickTimer >= tickInterval)
-		{
-			tickTimer = 0f;
-
-			SimulationTick();
-		}
-	}
-
-
-	// -----------------------------------------
-	// ЗАГРУЗКА JSON
-	// -----------------------------------------
-
-	
-private void LoadPlanet()
-	{
-		TextAsset planetJson =
-			PlanetSelectionManager.SelectedPlanetJson;
-
-		if (planetJson == null)
-		{
-			Debug.LogError(
-				"No planet JSON was selected!"
-			);
-
-			return;
-		}
-
-		Planet =
-			JsonUtility.FromJson<PlanetData>(
-				planetJson.text
-			);
-
-		if (Planet == null)
-		{
-			Debug.LogError(
-				"Failed to load planet JSON!"
-			);
-
-			return;
-		}
-
-		Debug.Log(
-			"Loaded planet: " +
-			Planet.name
-		);
-	}
-
-
-
-	// -----------------------------------------
-	// НАСТРОЙКА ПОПУЛЯЦИИ
-	// -----------------------------------------
-
-	private void InitializePopulation()
-	{
-		if (Planet.organisms == null)
-		{
-			Planet.organisms =
-				new List<OrganismData>();
-		}
-
-		foreach (OrganismData organism in Planet.organisms)
-		{
-			if (organism.genome == null)
-			{
-				organism.genome =
-					evolutionSystem.CreateRandomGenome();
-			}
-
-			if (organism.direction == null)
-			{
-				Vector2 randomDirection =
-					UnityEngine.Random.insideUnitCircle.normalized;
-
-
-				organism.direction =
-					new DirectionData
-					{
-						x = randomDirection.x,
-						y = randomDirection.y
-					};
-			}
-		}
-	}
-
-
-	// -----------------------------------------
-	// ОДИН ШАГ СИМУЛЯЦИИ
-	// -----------------------------------------
-
-	private void SimulationTick()
-	{
-		if (
-			Planet == null ||
-			Planet.organisms == null
-		)
-		{
-			return;
-		}
-
-
-		// Сюда складываем новых организмов.
-		List<OrganismData> newborns =
-			new List<OrganismData>();
-
-
-		// Работаем с копией списка.
-		// Это нужно потому, что во время
-		// симуляции могут появиться новые организмы.
-
-		List<OrganismData> population =
-			new List<OrganismData>(
-				Planet.organisms
-			);
-
-
-		// -------------------------------------
-		// ОБРАБОТКА ВСЕХ ОРГАНИЗМОВ
-		// -------------------------------------
-
-		foreach (
-			OrganismData organism
-			in population)
-		{
-			// Мёртвые организмы ничего
-			// больше не делают.
-			if (
-				organism.state.health <= 0)
-			{
-				continue;
-			}
-
-
-			// Организм принимает решение.
-			LastDecision =
-				decisionEngine.MakeDecision(
-					organism,
-					Planet.environment
-				);
-
-
-			// Выполняем решение.
-			bool reproduced =
-				actionSystem.Execute(
-					organism,
-					Planet.environment,
-					LastDecision
-				);
-
-
-			// Если размножился —
-			// создаём потомка.
-			if (reproduced)
-			{
-				OrganismData child =
-					evolutionSystem
-						.CreateOffspring(
-							organism
-						);
-
-
-				newborns.Add(child);
-
-
-				Debug.Log(
-					"Organism " +
-					organism.id +
-					" reproduced. " +
-					"Child: " +
-					child.id
-				);
-			}
-		}
-
-
-		// -------------------------------------
-		// ДОБАВЛЯЕМ НОВОРОЖДЁННЫХ
-		// -------------------------------------
-
-		Planet.organisms.AddRange(
-			newborns
-		);
-
-
-		// -------------------------------------
-		// УДАЛЯЕМ ПОГИБШИХ
-		// -------------------------------------
-
-		RemoveDeadOrganisms();
-
-
-		// -------------------------------------
-		// ВОССТАНАВЛИВАЕМ РЕСУРСЫ
-		// -------------------------------------
-
-		UpdateEnvironment();
-
-
-		Debug.Log(
-			"Population: " +
-			Planet.organisms.Count
-		);
-	}
-
-
-	// -----------------------------------------
-	// УДАЛЕНИЕ МЁРТВЫХ
-	// -----------------------------------------
-
-	private void RemoveDeadOrganisms()
-	{
-		Planet.organisms.RemoveAll(
-			organism =>
-				organism.state.health <= 0
-		);
-	}
-
-
-	// -----------------------------------------
-	// ИЗМЕНЕНИЕ СРЕДЫ
-	// -----------------------------------------
-
-	private void UpdateEnvironment()
-	{
-		Planet.environment.resources +=
-			Planet.environment
-				.resourceRegeneration;
-
-
-		Planet.environment.resources =
-			Mathf.Clamp(
-				Planet.environment.resources,
-				0f,
-				2000f
-			);
-	}
+    [SerializeField]
+    private float tickInterval = 1f;
+
+    public PlanetData Planet
+    {
+        get;
+        private set;
+    }
+
+    public DecisionResult LastDecision
+    {
+        get;
+        private set;
+    }
+
+    private DecisionEngine decisionEngine;
+
+    private ActionSystem actionSystem;
+
+    private EvolutionSystem evolutionSystem;
+
+    private float tickTimer;
+
+    private void Start()
+    {
+        decisionEngine =
+            new DecisionEngine();
+
+        actionSystem =
+            new ActionSystem();
+
+        evolutionSystem =
+            new EvolutionSystem();
+
+        LoadPlanet();
+
+        if (Planet == null)
+        {
+            Debug.LogError(
+                "Simulation stopped: planet was not loaded."
+            );
+
+            return;
+        }
+
+        InitializePopulation();
+
+        Debug.Log(
+            "Initial population: " +
+            Planet.organisms.Count
+        );
+    }
+
+    private void Update()
+    {
+        tickTimer +=
+            Time.deltaTime;
+
+        if (tickTimer >= tickInterval)
+        {
+            tickTimer = 0f;
+
+            SimulationTick();
+        }
+    }
+
+    private void LoadPlanet()
+    {
+        TextAsset planetJson =
+            PlanetSelectionManager.SelectedPlanetJson;
+
+        if (planetJson == null)
+        {
+            Debug.LogError(
+                "No planet JSON was selected!"
+            );
+
+            return;
+        }
+
+        Planet =
+            JsonUtility.FromJson<PlanetData>(
+                planetJson.text
+            );
+
+        if (Planet == null)
+        {
+            Debug.LogError(
+                "Failed to load planet JSON!"
+            );
+
+            return;
+        }
+
+        Debug.Log(
+            "Loaded planet: " +
+            Planet.name
+        );
+    }
+
+    private void InitializePopulation()
+    {
+        if (Planet.organisms == null)
+        {
+            Planet.organisms =
+                new List<OrganismData>();
+        }
+
+        foreach (OrganismData organism in Planet.organisms)
+        {
+            if (organism.genome == null)
+            {
+                organism.genome =
+                    evolutionSystem.CreateRandomGenome();
+            }
+
+            if (organism.direction == null)
+            {
+                Vector2 randomDirection =
+                    UnityEngine.Random.insideUnitCircle.normalized;
+
+                organism.direction =
+                    new DirectionData
+                    {
+                        x = randomDirection.x,
+                        y = randomDirection.y
+                    };
+            }
+        }
+    }
+
+    private void SimulationTick()
+    {
+        if (
+            Planet == null ||
+            Planet.organisms == null
+        )
+        {
+            return;
+        }
+
+        List<OrganismData> newborns =
+            new List<OrganismData>();
+
+        List<OrganismData> population =
+            new List<OrganismData>(
+                Planet.organisms
+            );
+
+        foreach (
+            OrganismData organism
+            in population)
+        {
+            if (
+                organism.state.health <= 0)
+            {
+                continue;
+            }
+
+            LastDecision =
+                decisionEngine.MakeDecision(
+                    organism,
+                    Planet.environment
+                );
+
+            bool reproduced =
+                actionSystem.Execute(
+                    organism,
+                    Planet.environment,
+                    LastDecision
+                );
+
+            if (reproduced)
+            {
+                OrganismData child =
+                    evolutionSystem
+                        .CreateOffspring(
+                            organism
+                        );
+
+                newborns.Add(child);
+
+                Debug.Log(
+                    "Organism " +
+                    organism.id +
+                    " reproduced. " +
+                    "Child: " +
+                    child.id
+                );
+            }
+        }
+
+        Planet.organisms.AddRange(
+            newborns
+        );
+
+        RemoveDeadOrganisms();
+
+        UpdateEnvironment();
+
+        Debug.Log(
+            "Population: " +
+            Planet.organisms.Count
+        );
+    }
+
+    private void RemoveDeadOrganisms()
+    {
+        Planet.organisms.RemoveAll(
+            organism =>
+                organism.state.health <= 0
+        );
+    }
+
+    private void UpdateEnvironment()
+    {
+        Planet.environment.resources +=
+            Planet.environment
+                .resourceRegeneration;
+
+        Planet.environment.resources =
+            Mathf.Clamp(
+                Planet.environment.resources,
+                0f,
+                2000f
+            );
+    }
 }

@@ -4,44 +4,19 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using Debug = UnityEngine.Debug;
 
-
 public class PopulationRenderer : MonoBehaviour
 {
-    // Ссылка на SimulationManager
-    // из существующей сцены.
     [SerializeField]
     private SimulationManager simulation;
 
-
-    // Наш prefab организма.
     [SerializeField]
     private GameObject organismPrefab;
 
-
-    // Родительский объект,
-    // внутри которого будут находиться
-    // созданные организмы.
     [SerializeField]
     private Transform organismParent;
 
-
-    // Связь:
-    //
-    // ID организма
-    //       ↓
-    // его GameObject
-    //
-    // Благодаря этому мы понимаем,
-    // какой GameObject соответствует
-    // какому организму.
-
     private Dictionary<int, OrganismView> views =
         new Dictionary<int, OrganismView>();
-
-
-    // -----------------------------------------
-    // UPDATE
-    // -----------------------------------------
 
     private void Update()
     {
@@ -54,33 +29,18 @@ public class PopulationRenderer : MonoBehaviour
             return;
         }
 
-
         UpdatePopulation();
     }
-
-
-    // -----------------------------------------
-    // СИНХРОНИЗАЦИЯ
-    // -----------------------------------------
 
     private void UpdatePopulation()
     {
         List<OrganismData> organisms =
             simulation.Planet.organisms;
 
-
-        // -------------------------------------
-        // СОЗДАЁМ НОВЫХ
-        // -------------------------------------
-
         foreach (
             OrganismData organism
             in organisms)
         {
-            // Если для этого организма
-            // ещё нет GameObject,
-            // создаём его.
-
             if (!views.ContainsKey(organism.id))
             {
                 CreateOrganismView(
@@ -89,14 +49,8 @@ public class PopulationRenderer : MonoBehaviour
             }
         }
 
-
-        // -------------------------------------
-        // УДАЛЯЕМ УМЕРШИХ
-        // -------------------------------------
-
         List<int> idsToRemove =
             new List<int>();
-
 
         foreach (
             var pair
@@ -104,7 +58,6 @@ public class PopulationRenderer : MonoBehaviour
         {
             bool organismExists =
                 false;
-
 
             foreach (
                 OrganismData organism
@@ -119,11 +72,6 @@ public class PopulationRenderer : MonoBehaviour
                 }
             }
 
-
-            // Если организма больше нет
-            // в симуляции — удаляем его
-            // GameObject.
-
             if (!organismExists)
             {
                 Destroy(
@@ -136,9 +84,6 @@ public class PopulationRenderer : MonoBehaviour
             }
         }
 
-
-        // Удаляем записи из Dictionary.
-
         foreach (
             int id
             in idsToRemove)
@@ -146,11 +91,6 @@ public class PopulationRenderer : MonoBehaviour
             views.Remove(id);
         }
     }
-
-
-    // -----------------------------------------
-    // СОЗДАНИЕ GAMEOBJECT
-    // -----------------------------------------
 
     private void CreateOrganismView(
         OrganismData organism)
@@ -161,13 +101,8 @@ public class PopulationRenderer : MonoBehaviour
                 organismParent
             );
 
-
-        // Получаем OrganismView
-        // с созданного объекта.
-
         OrganismView view =
             obj.GetComponent<OrganismView>();
-
 
         if (view == null)
         {
@@ -181,16 +116,10 @@ public class PopulationRenderer : MonoBehaviour
             return;
         }
 
-
-        // Передаём GameObject'у
-        // данные настоящего организма.
-
         view.Initialize(
             organism
         );
 
-
-        // Запоминаем связь.
         views.Add(
             organism.id,
             view
