@@ -1921,6 +1921,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 881991845}
   m_CullTransparentMesh: 1
+--- !u!1001 &882134255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1161282320676643870, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339708677302245453, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
+      propertyPath: m_Name
+      value: Organism
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c0ab0ce651d1c6c41a447e67bbc952df, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2709,7 +2778,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.98572415, b: 0.07861614, a: 1}
+  m_Color: {r: 1, g: 0.43375677, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4131,7 +4200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.83504736, b: 0.047169685, a: 1}
+  m_Color: {r: 1, g: 0.43554398, b: 0.04705882, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4616,3 +4685,4 @@ SceneRoots:
   - {fileID: 705507995}
   - {fileID: 1181452288}
   - {fileID: 782621458}
+  - {fileID: 882134255}
