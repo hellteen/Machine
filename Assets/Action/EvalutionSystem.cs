@@ -60,13 +60,21 @@ public class EvolutionSystem
 				z = parent.position.z +
 					Random.Range(-2f, 2f)
 			};
+        Vector2 randomDirection =
+    UnityEngine.Random.insideUnitCircle.normalized;
 
+        child.direction =
+            new DirectionData
+            {
+                x = randomDirection.x,
+                y = randomDirection.y
+            };
 
-		// -------------------------------------
-		// НАЧАЛЬНОЕ СОСТОЯНИЕ
-		// -------------------------------------
+        // -------------------------------------
+        // НАЧАЛЬНОЕ СОСТОЯНИЕ
+        // -------------------------------------
 
-		child.state =
+        child.state =
 			new StateData
 			{
 				health = 100f,

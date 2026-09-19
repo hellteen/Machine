@@ -97,8 +97,8 @@ public class ActionSystem
 
         // Скорость зависит от гена движения.
         float speed =
-            0.2f +
-            organism.genome.movement * 0.8f;
+    10f +
+    organism.genome.movement * 20f;
 
 
         // Двигаем организм.
@@ -110,19 +110,41 @@ public class ActionSystem
 
 
         // Границы твоей панели.
-        organism.position.x =
-            Mathf.Clamp(
-                organism.position.x,
-                -980f,
-                980f
-            );
+        float minX = -800f;
+        float maxX = 800f;
 
-        organism.position.y =
-            Mathf.Clamp(
-                organism.position.y,
-                -540f,
-                540f
-            );
+        float minY = -400f;
+        float maxY = 400f;
+
+
+        if (organism.position.x <= minX)
+        {
+            organism.position.x = minX;
+            organism.direction.x =
+                Mathf.Abs(organism.direction.x);
+        }
+
+        if (organism.position.x >= maxX)
+        {
+            organism.position.x = maxX;
+            organism.direction.x =
+                -Mathf.Abs(organism.direction.x);
+        }
+
+
+        if (organism.position.y <= minY)
+        {
+            organism.position.y = minY;
+            organism.direction.y =
+                Mathf.Abs(organism.direction.y);
+        }
+
+        if (organism.position.y >= maxY)
+        {
+            organism.position.y = maxY;
+            organism.direction.y =
+                -Mathf.Abs(organism.direction.y);
+        }
 
 
         // Расход энергии.
