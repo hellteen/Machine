@@ -17,9 +17,14 @@ public class Effect_button : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public float speed = 12f;
 
     [Header("Настройки подсветки")]
-   
     public Color hoverColor = new Color(0.7f, 0.95f, 1f, 1f);
     public Color clickColor = new Color(0.8f, 0.8f, 0.8f, 1f);
+
+    [Header("Вспышка и отдача при клике (Punch)")]
+    [Tooltip("Масштаб подброса кнопки в момент клика")]
+    public float punchScale = 1.2f;
+    [Tooltip("Цвет мгновенной вспышки (например, яркий белый или неоновый)")]
+    public Color flashColor = Color.white;
 
     void Awake()
     {
@@ -40,14 +45,28 @@ public class Effect_button : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Update()
     {
-        
         transform.localScale = Vector3.Lerp(transform.localScale, tarScale, Time.deltaTime * speed);
 
-        
         if (btnImage != null)
         {
             btnImage.color = Color.Lerp(btnImage.color, tarColor, Time.deltaTime * speed);
         }
+    }
+
+    // ВЫЗЫВАЙ ЭТОТ МЕТОД В ONCLICK ()
+    public void PlayClickEffect()
+    {
+        // Мгновенный импульс: кнопка подпрыгивает в размере и ярко вспыхивает
+        transform.localScale = orScale * punchScale;
+
+        if (btnImage != null)
+        {
+            btnImage.color = flashColor;
+        }
+
+        // Задаем возврат обратно в состояние наведения (так как курсор всё ещё на кнопке)
+        tarScale = orScale * hoverScale;
+        tarColor = hoverColor;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
