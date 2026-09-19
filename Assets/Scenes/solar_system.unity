@@ -860,6 +860,7 @@ GameObject:
   - component: {fileID: 537356069}
   - component: {fileID: 537356068}
   - component: {fileID: 537356067}
+  - component: {fileID: 537356070}
   m_Layer: 5
   m_Name: Button_Next
   m_TagString: Untagged
@@ -981,6 +982,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 537356065}
   m_CullTransparentMesh: 1
+--- !u!114 &537356070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537356065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac807a0fccb4edc40a9678250233cd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effect_button
+  hoverScale: 1.05
+  clickScale: 0.95
+  speed: 12
+  hoverColor: {r: 0.7, g: 0.95, b: 1, a: 1}
+  clickColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
 --- !u!1 &599039077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1433,7 @@ GameObject:
   - component: {fileID: 893802624}
   - component: {fileID: 893802623}
   - component: {fileID: 893802622}
+  - component: {fileID: 893802625}
   m_Layer: 5
   m_Name: Button_Prev
   m_TagString: Untagged
@@ -1518,7 +1537,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2208510542369132325, guid: c7459f875b27b344cb29b360bd042d3b, type: 3}
+  m_Sprite: {fileID: -2857242979558869947, guid: aa2586cdd88cc3243935985cdf0e5820, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1536,6 +1555,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893802620}
   m_CullTransparentMesh: 1
+--- !u!114 &893802625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893802620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac807a0fccb4edc40a9678250233cd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effect_button
+  hoverScale: 1.05
+  clickScale: 0.95
+  speed: 12
+  hoverColor: {r: 0.7, g: 0.95, b: 1, a: 1}
+  clickColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
 --- !u!1 &1110211223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,7 +1967,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1318741745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2101,6 +2137,7 @@ GameObject:
   - component: {fileID: 1407912079}
   - component: {fileID: 1407912078}
   - component: {fileID: 1407912081}
+  - component: {fileID: 1407912082}
   m_Layer: 5
   m_Name: Button_Select
   m_TagString: Untagged
@@ -2123,11 +2160,11 @@ RectTransform:
   - {fileID: 1318741745}
   m_Father: {fileID: 766039388}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -762.5, y: 72.2}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 21.99, y: 40.48}
   m_SizeDelta: {x: 350, y: 88.7}
-  m_Pivot: {x: 1, y: 0}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1407912078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,7 +2221,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 599039080}
         m_TargetAssemblyTypeName: PlanetSelectionManager, Assembly-CSharp
         m_MethodName: StartSimulation
         m_Mode: 1
@@ -2247,6 +2284,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneLoader
   targetSceneName: Simulation
+--- !u!114 &1407912082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407912076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac807a0fccb4edc40a9678250233cd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Effect_button
+  hoverScale: 1.05
+  clickScale: 0.95
+  speed: 12
+  hoverColor: {r: 0.7, g: 0.95, b: 1, a: 1}
+  clickColor: {r: 0.8, g: 0.8, b: 0.8, a: 1}
 --- !u!1001 &1476659187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2588,7 +2642,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -609, y: 22.45}
+  m_AnchoredPosition: {x: -620, y: 22.45}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2072186905
@@ -2645,7 +2699,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2725,7 +2779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -131, y: 388.6}
+  m_AnchoredPosition: {x: -323.4, y: 388.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2088047093
@@ -2748,10 +2802,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u042B\u0411\u041E\u0420 \u0421\u0418\u0421\u0422\u0415\u041C\u042B"
+  m_text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u041D\u0415\u0411\u0415\u0421\u041D\u041E\u0415 \u0422\u0415\u041B\u041E"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c32cde8448fa174e83b8fa0dbe82577, type: 2}
+  m_sharedMaterial: {fileID: 6999870894737086584, guid: 0c32cde8448fa174e83b8fa0dbe82577, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2775,13 +2829,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 64.9
+  m_fontSizeBase: 64.9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -2814,7 +2868,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -267.1001, w: 0}
+  m_margin: {x: 0, y: 0, z: -671.26917, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
