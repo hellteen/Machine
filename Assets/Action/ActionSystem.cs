@@ -117,8 +117,8 @@ public class ActionSystem
 
         // Скорость.
         float speed =
-            10f +
-            organism.genome.movement * 20f;
+      5f +
+      organism.genome.movement * 10f;
 
 
         // Движение.
@@ -130,11 +130,11 @@ public class ActionSystem
 
 
         // Границы области движения.
-        float minX = -800f;
-        float maxX = 800f;
+        float minX = -400f;
+        float maxX = 400f;
 
-        float minY = -400f;
-        float maxY = 400f;
+        float minY = -250f;
+        float maxY = 250f;
 
 
         // Отскок от левой/правой границы.
