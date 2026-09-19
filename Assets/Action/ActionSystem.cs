@@ -156,7 +156,7 @@ public class ActionSystem
 
         organism.state.health -= radiationDamage;
 
-        ClampState(organism);ы
+        ClampState(organism);
     }
 
     private void SearchResource(
