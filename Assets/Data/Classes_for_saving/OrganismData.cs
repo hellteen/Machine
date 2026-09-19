@@ -3,51 +3,107 @@ using System;
 [Serializable]
 public class OrganismData
 {
-	public int id;
-	public PositionData position;
-	public StateData state;
-	public BehaviorData behavior;
-	public SensorData sensors;
-	public MemoryData memory;
+    public int id;
+
+    // Положение организма в мире.
+    public PositionData position;
+
+    // Текущее состояние организма.
+    public StateData state;
+
+    // Наследуемые характеристики.
+    // Они не являются "мозгом".
+    // Это просто набор генов.
+    public GenomeData genome;
+
+    // Органы восприятия среды.
+    public SensorData sensors;
+
+    // Простая память.
+    public MemoryData memory;
 }
+
+
+// -----------------------------------------
+// ПОЛОЖЕНИЕ
+// -----------------------------------------
 
 [Serializable]
 public class PositionData
 {
-	public float x;
-	public float y;
-	public float z;
+    public float x;
+    public float y;
+    public float z;
 }
+
+
+// -----------------------------------------
+// СОСТОЯНИЕ
+// -----------------------------------------
 
 [Serializable]
 public class StateData
 {
-	public float health;
-	public float energy;
-	public float age;
-	public float hunger;
+    public float health;
+    public float energy;
+    public float age;
+    public float hunger;
 }
 
+
+// -----------------------------------------
+// ГЕНОМ
+// -----------------------------------------
+
 [Serializable]
-public class BehaviorData
+public class GenomeData
 {
-	public float movement;
-	public float resourceSeeking;
-	public float reproduction;
-	public float waiting;
+    // Насколько организм склонен к движению.
+    public float movement;
+
+    // Насколько организм склонен искать ресурсы.
+    public float resourceSeeking;
+
+    // Насколько организм склонен размножаться.
+    public float reproduction;
+
+    // Насколько организм склонен ждать.
+    public float waiting;
+
+    // Устойчивость к радиации.
+    public float radiationResistance;
+
+    // Устойчивость к холоду.
+    public float coldResistance;
+
+    // Склонность исследовать окружающую среду.
+    public float exploration;
 }
+
+
+// -----------------------------------------
+// ДАТЧИКИ
+// -----------------------------------------
 
 [Serializable]
 public class SensorData
 {
-	public float visionRange;
-	public float temperatureSensitivity;
-	public float radiationSensitivity;
-	public float resourceSensitivity;
+    public float visionRange;
+
+    public float temperatureSensitivity;
+
+    public float radiationSensitivity;
+
+    public float resourceSensitivity;
 }
+
+
+// -----------------------------------------
+// ПАМЯТЬ
+// -----------------------------------------
 
 [Serializable]
 public class MemoryData
 {
-	public int capacity;
+    public int capacity;
 }

@@ -11,34 +11,36 @@
 			"energy": 300.0,
 			"resourceRegeneration": 0.7
 		},
-		"organism": {
-			"id": 1,
-			"position": {
-				"x": 0.0,
-				"y": 0.0,
-				"z": 0.0
-			},
-			"state": {
-				"health": 100.0,
-				"energy": 70.0,
-				"age": 0.0,
-				"hunger": 0.0
-			},
-			"behavior": {
-				"movement": 0.5,
-				"resourceSeeking": 0.9,
-				"reproduction": 0.2,
-				"waiting": 0.3
-			},
-			"sensors": {
-				"visionRange": 12.0,
-				"temperatureSensitivity": 1.2,
-				"radiationSensitivity": 0.9,
-				"resourceSensitivity": 1.4
-			},
-			"memory": {
-				"capacity": 12
+		"organism": [
+			{
+				"id": 1,
+				"position": {
+					"x": 0.0,
+					"y": 0.0,
+					"z": 0.0
+				},
+				"state": {
+					"health": 100.0,
+					"energy": 70.0,
+					"age": 0.0,
+					"hunger": 0.0
+				},
+				"behavior": {
+					"movement": 0.5,
+					"resourceSeeking": 0.9,
+					"reproduction": 0.2,
+					"waiting": 0.3
+				},
+				"sensors": {
+					"visionRange": 12.0,
+					"temperatureSensitivity": 1.2,
+					"radiationSensitivity": 0.9,
+					"resourceSensitivity": 1.4
+				},
+				"memory": {
+					"capacity": 12
+				}
 			}
-		}
+		]
 	}
 }
