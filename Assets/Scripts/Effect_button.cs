@@ -53,10 +53,8 @@ public class Effect_button : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         }
     }
 
-    // ВЫЗЫВАЙ ЭТОТ МЕТОД В ONCLICK ()
     public void PlayClickEffect()
     {
-        // Мгновенный импульс: кнопка подпрыгивает в размере и ярко вспыхивает
         transform.localScale = orScale * punchScale;
 
         if (btnImage != null)

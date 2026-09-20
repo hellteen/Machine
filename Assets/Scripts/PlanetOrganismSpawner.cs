@@ -14,7 +14,6 @@ public class PlanetOrganismSpawner : MonoBehaviour
 
     private void SpawnOrganism()
     {
-        // Проверяем, какая планета была выбрана
         string planetName = PlanetSelectionManager.SelectedPlanetJson.name;
 
         if (planetName == "jupiter")
