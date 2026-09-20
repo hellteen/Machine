@@ -48,6 +48,22 @@ public class Export : MonoBehaviour
 
     public void Exp()
     {
+        //текущий момент в цсв перед экс
+        if (metrics != null)
+        {
+            int population =
+                FindObjectsOfType<OrganismView>().Length;
+
+            data.AppendLine(
+                $"{Time.time:F1};" +
+                $"{population};" +
+                $"{metrics.Power:F1};" +
+                $"{metrics.Efficiency:F1};" +
+                $"{metrics.Entropy:F1};" +
+                $"{metrics.ResponseDelay:F1}"
+            );
+        }
+
         string folderPath =
             Path.Combine(
                 Application.persistentDataPath,

@@ -273,7 +273,7 @@ public class SimulationManager : MonoBehaviour
        
         if (
             currentPopulation != previousPopulation ||
-            tickCount % 10 == 0
+            tickCount % 20 == 0
         )
         {
             SimulationEvents.Add(
@@ -283,6 +283,12 @@ public class SimulationManager : MonoBehaviour
 
             previousPopulation =
                 currentPopulation;
+        }
+        if (currentPopulation == 0)
+        {
+            SimulationEvents.Add(
+                "Популяция исчезла"
+            );
         }
 
         Debug.Log(
