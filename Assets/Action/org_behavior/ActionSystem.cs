@@ -110,11 +110,11 @@ public class ActionSystem
             direction.y * speed;
 
         //границы
-        float minX = -6f;
-        float maxX = 6f;
+        float minX = -5f;
+        float maxX = 5f;
 
-        float minY = -3f;
-        float maxY = 3f;
+        float minY = -2.5f;
+        float maxY = 2.5f;
 
         if (organism.position.x <= minX)
         {
