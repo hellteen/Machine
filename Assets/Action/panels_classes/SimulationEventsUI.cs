@@ -62,7 +62,7 @@ public class SimulationEventsUI : MonoBehaviour
         displayedEvents.Add(newEvent);
 
         // Оставляем только последние 7 сообщений
-        while (displayedEvents.Count > 7)
+        while (displayedEvents.Count > 10)
         {
             displayedEvents.RemoveAt(0);
         }
