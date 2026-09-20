@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using TMPro;
 public class SceneLoader : MonoBehaviour
 {
     [Header("Настройки сцены")]
@@ -16,6 +16,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private float fadeDuration = 0.8f;
     [Tooltip("Цвет затемнения")]
     [SerializeField] private Color fadeColor = Color.black;
+    [SerializeField] private TMP_Text eventsText;
 
     private bool isTransitioning = false;
 
@@ -29,15 +30,17 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadSimulationScene()
     {
-        Debug.Log("<color=cyan>[SceneLoader]</color> 1. Клик зарегистрирован, запуск перехода!");
+       
 
-        if (isTransitioning)
+        // Очищаем Events
+        if (eventsText != null)
         {
-            Debug.LogWarning("[SceneLoader] Переход уже идёт, повторный клик проигнорирован.");
-            return;
+            eventsText.text = "";
         }
 
-        StartCoroutine(FadeAndLoadRoutine());
+    
+
+    StartCoroutine(FadeAndLoadRoutine());
     }
 
     private IEnumerator FadeAndLoadRoutine()
