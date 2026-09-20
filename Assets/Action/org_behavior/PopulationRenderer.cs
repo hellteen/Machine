@@ -9,10 +9,19 @@
         [SerializeField]
         private SimulationManager simulation;
 
-        [SerializeField]
-        private GameObject organismPrefab;
+    [SerializeField]
+    private GameObject jupiterOrganismPrefab;
 
-        [SerializeField]
+    [SerializeField]
+    private GameObject marsOrganismPrefab;
+
+    [SerializeField]
+    private GameObject uranusOrganismPrefab;
+
+    [SerializeField]
+    private GameObject neptuneOrganismPrefab;
+
+    [SerializeField]
         private Transform organismParent;
 
         private Dictionary<int, OrganismView> views =
@@ -91,17 +100,48 @@
                 views.Remove(id);
             }
         }
+    private GameObject GetOrganismPrefab()
+    {
+        switch (simulation.Planet.name)
+        {
+            case "Jupiter":
+                return jupiterOrganismPrefab;
 
-        private void CreateOrganismView(
+            case "Mars":
+                return marsOrganismPrefab;
+
+            case "Earth":
+                return uranusOrganismPrefab;
+
+            case "Venus":
+                return neptuneOrganismPrefab;
+
+            default:
+                return null;
+        }
+    }
+    private void CreateOrganismView(
             OrganismData organism)
         {
-            GameObject obj =
-                Instantiate(
-                    organismPrefab,
-                    organismParent
-                );
+        GameObject prefab = GetOrganismPrefab();
 
-            OrganismView view =
+        if (prefab == null)
+        {
+            Debug.LogError(
+                "No organism prefab found for planet: " +
+                simulation.Planet.name
+            );
+
+            return;
+        }
+
+        GameObject obj =
+            Instantiate(
+                prefab,
+                organismParent
+            );
+
+        OrganismView view =
                 obj.GetComponent<OrganismView>();
 
             if (view == null)
