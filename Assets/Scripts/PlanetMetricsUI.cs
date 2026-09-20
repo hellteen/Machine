@@ -15,24 +15,44 @@ public class PlanetMetricsUI : MonoBehaviour
     [Header("Связки слайдеров и текстов")]
     [SerializeField] private MetricRow[] metrics;
 
-    private void Awake()
+    private void Start()
     {
-        // Подписываем каждый слайдер на автоматическое обновление своего текста
+        // Подписываем слайдеры и инициализируем текст в Start,
+        // чтобы PlanetParameters успел выставить свои min/max значения
         foreach (var metric in metrics)
         {
             if (metric.slider != null && metric.percentText != null)
             {
-                // Запоминаем локальную копию переменной для корректной работы лямбды
                 var currentMetric = metric;
 
+                // Слушатель изменения ползунка
                 currentMetric.slider.onValueChanged.AddListener((val) =>
                 {
-                    currentMetric.percentText.text = $"{Mathf.RoundToInt(val)}%";
+                    UpdateMetricText(currentMetric);
                 });
 
-                // Первичная инициализация при старте сцены
-                currentMetric.percentText.text = $"{Mathf.RoundToInt(currentMetric.slider.value)}%";
+                // Первичный вывод процентов при старте
+                UpdateMetricText(currentMetric);
             }
+        }
+    }
+
+    private void UpdateMetricText(MetricRow metric)
+    {
+        // Вычисляем процент заполнения шкалы от 0 до 1 независимо от min и max
+        float normalized = Mathf.InverseLerp(metric.slider.minValue, metric.slider.maxValue, metric.slider.value);
+        int percentage = Mathf.RoundToInt(normalized * 100f);
+
+        metric.percentText.text = $"{percentage}%";
+    }
+
+    // Метод на случай принудительного обновления из других скриптов
+    public void RefreshAll()
+    {
+        if (metrics == null) return;
+        foreach (var metric in metrics)
+        {
+            UpdateMetricText(metric);
         }
     }
 }
