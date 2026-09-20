@@ -3,60 +3,102 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using UnityEngine;
-using static System.Net.Mime.MediaTypeNames;
 using Random = UnityEngine.Random;
-using Application = UnityEngine.Application;
 
-public class Export: MonoBehaviour
+public class Export : MonoBehaviour
 {
-    StringBuilder data = new StringBuilder();
+    private StringBuilder data = new StringBuilder();
 
-    float time;
+    private float time;
 
-
-    void Start()
+    private void Start()
     {
+        
         data.AppendLine(
-            "Time,Population,Power,Efficiency,Entropy"
+            "Время;Население;Мощность;Эффективность;Энтропия"
         );
     }
 
-
-    void Update()
+    private void Update()
     {
         time += Time.deltaTime;
 
-
+        
         if (time >= 1f)
         {
-            time = 0;
+            time = 0f;
 
             int population =
                 FindObjectsOfType<OrganismView>().Length;
 
-
+            // ВРЕМЕННО:
             float power = population * 0.5f;
-            float efficiency = Random.Range(60, 90);
-            float entropy = Random.Range(20, 50);
-
+            float efficiency = Random.Range(60f, 90f);
+            float entropy = Random.Range(20f, 50f);
 
             data.AppendLine(
-                $"{Time.time:F1},{population},{power:F1},{efficiency:F1},{entropy:F1}"
+                $"{Time.time:F1};" +
+                $"{population};" +
+                $"{power:F1};" +
+                $"{efficiency:F1};" +
+                $"{entropy:F1}"
             );
         }
     }
 
-
     public void Exp()
     {
-        string path =
-            Application.dataPath + "/SimulationResult.csv";
+        
+        string folderPath =
+            Path.Combine(Application.persistentDataPath, "Exports");
 
+        if (!Directory.Exists(folderPath))
+        {
+            Directory.CreateDirectory(folderPath);
+        }
+
+        
+        string fileName =
+            $"SimulationResult_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.csv";
+
+        string path =
+            Path.Combine(folderPath, fileName);
+
+      
+        string csv =
+            "\uFEFF" + data.ToString();
 
         File.WriteAllText(
             path,
-            data.ToString()
+            csv,
+            Encoding.UTF8
         );
 
+        UnityEngine.Debug.Log(
+            $"Экспорт завершён: {path}"
+        );
+
+        
+        OpenFile(path);
+    }
+
+    private void OpenFile(string path)
+    {
+        try
+        {
+            Process.Start(
+                new ProcessStartInfo
+                {
+                    FileName = path,
+                    UseShellExecute = true
+                }
+            );
+        }
+        catch (Exception e)
+        {
+            UnityEngine.Debug.LogError(
+                $"Не удалось открыть файл: {e.Message}"
+            );
+        }
     }
 }
