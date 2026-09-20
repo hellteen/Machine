@@ -16,7 +16,8 @@ public class SimulationManager : MonoBehaviour
 
     [SerializeField]
     private PopulationStatus populationStatus;
-
+    [SerializeField]
+    private TextAsset planetJson;
     public PlanetData Planet
     {
         get;
@@ -91,7 +92,7 @@ public class SimulationManager : MonoBehaviour
     private void LoadPlanet()
     {
         TextAsset planetJson =
-            PlanetSelectionManager.SelectedPlanetJson;
+         PlanetSelectionManager.SelectedPlanetJson;
 
         if (planetJson == null)
         {
