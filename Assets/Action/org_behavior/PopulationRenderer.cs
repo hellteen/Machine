@@ -109,11 +109,10 @@
 
             case "Mars":
                 return marsOrganismPrefab;
-
-            case "Earth":
+            case "Uranus":
                 return uranusOrganismPrefab;
 
-            case "Venus":
+            case "Neptune":
                 return neptuneOrganismPrefab;
 
             default:

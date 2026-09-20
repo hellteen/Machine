@@ -1338,6 +1338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 482637876}
   - component: {fileID: 482637877}
+  - component: {fileID: 482637878}
   m_Layer: 0
   m_Name: SimulationManager
   m_TagString: Untagged
@@ -1376,6 +1377,24 @@ MonoBehaviour:
   planetParameters: {fileID: 1663808868}
   populationStatus: {fileID: 861910228}
   planetJson: {fileID: 0}
+--- !u!114 &482637878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482637875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ebb4363a10ce6c42a47a2283627c623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopulationRenderer
+  simulation: {fileID: 482637877}
+  jupiterOrganismPrefab: {fileID: 8276798252617992673, guid: 1f42e09fd11a73a4c9742ccb04492246, type: 3}
+  marsOrganismPrefab: {fileID: 2099147888295485790, guid: 1c829b5c9852e6c4c8cd274294efe281, type: 3}
+  uranusOrganismPrefab: {fileID: 9160827375271478596, guid: d899d7e9d73d38d4ea855861079057ba, type: 3}
+  neptuneOrganismPrefab: {fileID: 4419477747678233288, guid: 5c0bb343d9723d14ea5416f57cb9607d, type: 3}
+  organismParent: {fileID: 0}
 --- !u!1 &487202395
 GameObject:
   m_ObjectHideFlags: 0
@@ -4274,6 +4293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88bb1c7ce451f24790bf685b5ba4990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Export
+  metrics: {fileID: 0}
 --- !u!1 &1360447143
 GameObject:
   m_ObjectHideFlags: 0
