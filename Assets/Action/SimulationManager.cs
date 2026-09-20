@@ -289,6 +289,7 @@ public class SimulationManager : MonoBehaviour
             SimulationEvents.Add(
                 "Популяция исчезла"
             );
+            return;
         }
 
         Debug.Log(
