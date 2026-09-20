@@ -3333,10 +3333,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fbecd3225526fb469248f5ab6e6ae8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Allmetrics
-  powerSlider: {fileID: 0}
-  efficiencySlider: {fileID: 0}
-  entropySlider: {fileID: 0}
-  responseDelaySlider: {fileID: 0}
+  powerSlider: {fileID: 1223645632}
+  efficiencySlider: {fileID: 1484795035}
+  entropySlider: {fileID: 653669295}
+  responseDelaySlider: {fileID: 1934763713}
 --- !u!1 &1103801724
 GameObject:
   m_ObjectHideFlags: 0
@@ -4274,6 +4274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88bb1c7ce451f24790bf685b5ba4990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Export
+  metrics: {fileID: 0}
 --- !u!1 &1360447143
 GameObject:
   m_ObjectHideFlags: 0
