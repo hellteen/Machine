@@ -3,27 +3,31 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Export : MonoBehaviour
 {
-    private StringBuilder data = new StringBuilder();
+    private StringBuilder data =
+        new StringBuilder();
 
     private float time;
 
+    [SerializeField]
+    private Allmetrics metrics;
+
     private void Start()
     {
-        
         data.AppendLine(
-            "Время;Население;Мощность;Эффективность;Энтропия"
+            "Время;Население;Мощность;Эффективность;Энтропия;Задержка"
         );
     }
 
     private void Update()
     {
+        if (metrics == null)
+            return;
+
         time += Time.deltaTime;
 
-        
         if (time >= 1f)
         {
             time = 0f;
@@ -31,40 +35,39 @@ public class Export : MonoBehaviour
             int population =
                 FindObjectsOfType<OrganismView>().Length;
 
-            // ВРЕМЕННО:
-            float power = population * 0.5f;
-            float efficiency = Random.Range(60f, 90f);
-            float entropy = Random.Range(20f, 50f);
-
             data.AppendLine(
                 $"{Time.time:F1};" +
                 $"{population};" +
-                $"{power:F1};" +
-                $"{efficiency:F1};" +
-                $"{entropy:F1}"
+                $"{metrics.Power:F1};" +
+                $"{metrics.Efficiency:F1};" +
+                $"{metrics.Entropy:F1};" +
+                $"{metrics.ResponseDelay:F1}"
             );
         }
     }
 
     public void Exp()
     {
-        
         string folderPath =
-            Path.Combine(Application.persistentDataPath, "Exports");
+            Path.Combine(
+                Application.persistentDataPath,
+                "Exports"
+            );
 
         if (!Directory.Exists(folderPath))
         {
             Directory.CreateDirectory(folderPath);
         }
 
-        
         string fileName =
             $"SimulationResult_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}.csv";
 
         string path =
-            Path.Combine(folderPath, fileName);
+            Path.Combine(
+                folderPath,
+                fileName
+            );
 
-      
         string csv =
             "\uFEFF" + data.ToString();
 
@@ -78,7 +81,6 @@ public class Export : MonoBehaviour
             $"Экспорт завершён: {path}"
         );
 
-        
         OpenFile(path);
     }
 
