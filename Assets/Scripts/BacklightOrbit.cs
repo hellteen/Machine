@@ -30,10 +30,8 @@ public class BacklightOrbit : MonoBehaviour
 
     private void Update()
     {
-        // 1.  оординаты точки, вокруг которой летим
         Vector3 center = targetCenter != null ? targetCenter.position : Vector3.zero;
 
-        // 2. ƒвижение по кругу вокруг центра
         currentAngle += orbitSpeed * Time.deltaTime;
 
         float x = center.x + Mathf.Sin(currentAngle) * orbitRadius;
@@ -42,10 +40,8 @@ public class BacklightOrbit : MonoBehaviour
 
         transform.position = new Vector3(x, y, z);
 
-        // —вет всегда направлен в центр к планетам
         transform.LookAt(center);
 
-        // 3. ћ€гкое дыхание €ркости
         if (targetLight != null)
         {
             float wave = Mathf.Sin(Time.time * pulseSpeed);

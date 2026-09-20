@@ -33,13 +33,12 @@ public class SlidingTabPanel : MonoBehaviour
     public void RecalculatePositions()
     {
         float dist = customDistance > 0f ? customDistance : panelRect.rect.width;
-        if (dist <= 10f) dist = 450f; // Защита, если Unity посчитал ширину равной 0
+        if (dist <= 10f) dist = 450f;
 
         float dir = (hideSide == SlideSide.Left) ? -1f : 1f;
         closedPos = openedPos + new Vector2(dist * dir, 0f);
     }
 
-    // Позволяет протестировать уезд прямо из меню скрипта по правому клику мыши
     [ContextMenu("Test Toggle (Проверить сдвиг)")]
     public void TogglePanel()
     {

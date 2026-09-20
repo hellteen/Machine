@@ -25,20 +25,17 @@ public class MouseParallax : MonoBehaviour
         if (isUI)
         {
             startAnchoredPos = rectTransform.anchoredPosition;
-            // ≈сли в инспекторе осталось старое гигантское число от 3D, ставим адекватное дл€ UI
             if (maxOffset < 1f) maxOffset = 15f;
         }
         else
         {
             startLocalPos = transform.localPosition;
-            // ≈сли это 3D-объект, а значение стоит больше единицы Ч режем до безопасных 0.3
             if (maxOffset > 2f) maxOffset = 0.3f;
         }
     }
 
     private void Update()
     {
-        // Ќормализуем курсор от -1 до +1 с жестким упором в границах окна
         float mouseX = Mathf.Clamp((Input.mousePosition.x / Screen.width) * 2f - 1f, -1f, 1f);
         float mouseY = Mathf.Clamp((Input.mousePosition.y / Screen.height) * 2f - 1f, -1f, 1f);
 
