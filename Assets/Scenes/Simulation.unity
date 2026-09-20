@@ -7076,6 +7076,9 @@ MonoBehaviour:
   - name: resources
     slider: {fileID: 1897218425}
     percentText: {fileID: 1166208468}
+  - name: enegry
+    slider: {fileID: 816421442}
+    percentText: {fileID: 1169553292}
 --- !u!114 &1663808870
 MonoBehaviour:
   m_ObjectHideFlags: 0

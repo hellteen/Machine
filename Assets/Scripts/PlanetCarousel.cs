@@ -19,7 +19,7 @@ public class PlanetCarousel : MonoBehaviour
         }
     }
 
-    [Header("UI Ссылки (Куда выводить текст)")]
+    [Header("UI Ссылки ")]
     [SerializeField] private TMP_Text planetNameText;
    
     public TMP_Text descText1;
