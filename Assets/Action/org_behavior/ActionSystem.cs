@@ -87,8 +87,8 @@ public class ActionSystem
         }
 
         // Немного меняем направление
-        organism.direction.x += Random.Range(-0.15f, 0.15f);
-        organism.direction.y += Random.Range(-0.15f, 0.15f);
+        organism.direction.x += Random.Range(-0.02f, 0.02f);
+        organism.direction.y += Random.Range(-0.02f, 0.02f);
 
         Vector2 direction =
             new Vector2(

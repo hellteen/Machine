@@ -12,18 +12,14 @@ public class PlanetParameters : MonoBehaviour
     [SerializeField] private Slider sliderEnergy;
 
     private PlanetData planet;
+
+
     public void Initialize(PlanetData data)
     {
         planet = data;
 
-        Debug.Log(
-            "PlanetParameters INITIALIZED: " +
-            planet.name
-        );
-
         if (planet == null)
         {
-            Debug.LogError("PlanetParameters: planet == null");
             return;
         }
 
@@ -31,20 +27,6 @@ public class PlanetParameters : MonoBehaviour
         UpdateSliders();
         SubscribeToSliders();
     }
-
-    //public void Initialize(PlanetData data)
-    //{
-    //    planet = data;
-
-    //    if (planet == null)
-    //    {
-    //        return;
-    //    }
-
-    //    SetupSliders();
-    //    UpdateSliders();
-    //    SubscribeToSliders();
-    //}
 
     private void SetupSliders()
     {

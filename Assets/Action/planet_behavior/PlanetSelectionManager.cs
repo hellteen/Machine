@@ -38,9 +38,7 @@ public class PlanetSelectionManager : MonoBehaviour
         }
     }
 
-    // -----------------------------------------
-    // ВЫБОР ПЛАНЕТЫ
-    // -----------------------------------------
+   
 
     public void SelectPlanet(PlanetSelection planet)
     {
@@ -49,10 +47,6 @@ public class PlanetSelectionManager : MonoBehaviour
         selectedPlanet = planet;
         Debug.Log("Selected planet: " + planet.gameObject.name);
     }
-
-    // -----------------------------------------
-    // ЗАПУСК СИМУЛЯЦИИ
-    // -----------------------------------------
 
     public void StartSimulation()
     {

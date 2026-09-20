@@ -14,37 +14,19 @@ public class PopulationStatus : MonoBehaviour
 
 	private PlanetData planet;
 
+
 	public void Initialize(PlanetData data)
 	{
 		planet = data;
 
-		Debug.Log(
-			"PopulationStatus INITIALIZED: " +
-			planet.name
-		);
-
 		if (planet == null)
 		{
-			Debug.LogError("PopulationStatus: planet == null");
 			return;
 		}
 
 		SetupSliders();
 		UpdateStats();
 	}
-
-	//public void Initialize(PlanetData data)
-	//{
-	//	planet = data;
-
-	//	if (planet == null)
-	//	{
-	//		return;
-	//	}
-
-	//	SetupSliders();
-	//	UpdateStats();
-	//}
 
 	private void SetupSliders()
 	{

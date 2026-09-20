@@ -28,11 +28,20 @@ public class OrganismView : MonoBehaviour
 
     private void UpdateView()
     {
-        transform.position =
+      
+        Vector3 target =
             new Vector3(
-                Data.position.x ,
-                Data.position.y ,
-                0f
+                Data.position.x,
+                Data.position.y,
+                Data.position.z
             );
-    }
+
+        transform.position =
+            Vector3.Lerp(
+                transform.position,
+                target,
+                Time.deltaTime * 10f
+            );
+    
+}
 }
