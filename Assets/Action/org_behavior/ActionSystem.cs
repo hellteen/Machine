@@ -66,14 +66,14 @@ public class ActionSystem
      OrganismData organism,
      EnvironmentData environment)
     {
-        Debug.Log(
-    "MOVE " +
-    organism.id +
-    " position: " +
-    organism.position.x +
-    ", " +
-    organism.position.y
-);
+//        Debug.Log(
+//    "MOVE " +
+//    organism.id +
+//    " position: " +
+//    organism.position.x +
+//    ", " +
+//    organism.position.y
+//);
         if (organism.direction == null)
         {
             Vector2 randomDirection =

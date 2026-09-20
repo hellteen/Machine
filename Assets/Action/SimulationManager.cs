@@ -35,6 +35,8 @@ public class SimulationManager : MonoBehaviour
     private EvolutionSystem evolutionSystem;
     private float tickTimer;
 
+    private int previousPopulation;
+
     private void Start()
     {
         decisionEngine =
@@ -59,7 +61,6 @@ public class SimulationManager : MonoBehaviour
 
         InitializePopulation();
 
-        // Передаём планету в UI
         if (planetParameters != null)
         {
             planetParameters.Initialize(Planet);
@@ -69,6 +70,18 @@ public class SimulationManager : MonoBehaviour
         {
             populationStatus.Initialize(Planet);
         }
+
+        previousPopulation =
+            Planet.organisms.Count;
+
+        SimulationEvents.Add(
+            "🌍 Simulation started"
+        );
+
+        SimulationEvents.Add(
+            "🧬 Initial population: " +
+            Planet.organisms.Count
+        );
 
         Debug.Log(
             "Initial population: " +

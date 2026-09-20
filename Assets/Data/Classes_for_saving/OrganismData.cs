@@ -33,9 +33,6 @@ public class DirectionData
 }
 
 
-// -----------------------------------------
-// ПОЛОЖЕНИЕ
-// -----------------------------------------
 
 [Serializable]
 public class PositionData
@@ -46,9 +43,6 @@ public class PositionData
 }
 
 
-// -----------------------------------------
-// СОСТОЯНИЕ
-// -----------------------------------------
 
 [Serializable]
 public class StateData
@@ -60,9 +54,6 @@ public class StateData
 }
 
 
-// -----------------------------------------
-// ГЕНОМ
-// -----------------------------------------
 
 [Serializable]
 public class GenomeData
@@ -90,9 +81,7 @@ public class GenomeData
 }
 
 
-// -----------------------------------------
-// ДАТЧИКИ
-// -----------------------------------------
+
 
 [Serializable]
 public class SensorData
@@ -107,9 +96,6 @@ public class SensorData
 }
 
 
-// -----------------------------------------
-// ПАМЯТЬ
-// -----------------------------------------
 
 [Serializable]
 public class MemoryData
