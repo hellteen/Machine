@@ -2944,6 +2944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+  isDefaultSelected: 0
 --- !u!114 &283920857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3178,6 +3179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+  isDefaultSelected: 0
 --- !u!114 &439593830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3749,6 +3751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+  isDefaultSelected: 0
 --- !u!114 &750051050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4893,18 +4896,6 @@ MonoBehaviour:
       - m_Target: {fileID: 1407912081}
         m_TargetAssemblyTypeName: Effect_button, Assembly-CSharp
         m_MethodName: PlayClickEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1407912076}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7393,6 +7384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736e9fc49ce021f40991bb426ef32b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlanetClick
+  isDefaultSelected: 0
 --- !u!114 &1476659198
 MonoBehaviour:
   m_ObjectHideFlags: 0
