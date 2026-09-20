@@ -5742,8 +5742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83726bf6bf6e5bb49bdd451fa42df38f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MouseParallax
-  intensity: 40
-  smoothSpeed: 3.5
+  maxOffset: 0.3
+  smoothSpeed: 2
   invert: 1
 --- !u!1 &1701851919
 GameObject:
