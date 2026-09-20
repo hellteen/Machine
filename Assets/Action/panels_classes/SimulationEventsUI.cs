@@ -26,7 +26,29 @@ public class SimulationEventsUI : MonoBehaviour
             UpdateEvents();
         }
     }
+    //private void UpdateEvents()
+    //{
+    //    string newEvent = SimulationEvents.GetNext();
 
+    //    if (newEvent == null)
+    //    {
+    //        return;
+    //    }
+
+    //    Debug.Log("UI EVENT: " + newEvent);
+
+    //    displayedEvents.Add(newEvent);
+
+    //    while (displayedEvents.Count > 7)
+    //    {
+    //        displayedEvents.RemoveAt(0);
+    //    }
+
+    //    eventsText.text = string.Join(
+    //        "\n",
+    //        displayedEvents
+    //    );
+    //}
     private void UpdateEvents()
     {
         string newEvent =

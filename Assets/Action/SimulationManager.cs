@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -16,8 +15,10 @@ public class SimulationManager : MonoBehaviour
 
     [SerializeField]
     private PopulationStatus populationStatus;
+
     [SerializeField]
     private TextAsset planetJson;
+
     public PlanetData Planet
     {
         get;
@@ -33,9 +34,11 @@ public class SimulationManager : MonoBehaviour
     private DecisionEngine decisionEngine;
     private ActionSystem actionSystem;
     private EvolutionSystem evolutionSystem;
+
     private float tickTimer;
 
     private int previousPopulation;
+    private int tickCount;
 
     private void Start()
     {
@@ -71,22 +74,7 @@ public class SimulationManager : MonoBehaviour
             populationStatus.Initialize(Planet);
         }
 
-        previousPopulation =
-            Planet.organisms.Count;
-
-        SimulationEvents.Add(
-            "🌍 Simulation started"
-        );
-
-        SimulationEvents.Add(
-            "🧬 Initial population: " +
-            Planet.organisms.Count
-        );
-
-        Debug.Log(
-            "Initial population: " +
-            Planet.organisms.Count
-        );
+    
     }
 
     private void Update()
@@ -105,7 +93,7 @@ public class SimulationManager : MonoBehaviour
     private void LoadPlanet()
     {
         TextAsset planetJson =
-         PlanetSelectionManager.SelectedPlanetJson;
+            PlanetSelectionManager.SelectedPlanetJson;
 
         if (planetJson == null)
         {
@@ -181,6 +169,11 @@ public class SimulationManager : MonoBehaviour
             return;
         }
 
+        tickCount++;
+
+        int populationBefore =
+            Planet.organisms.Count;
+
         List<OrganismData> newborns =
             new List<OrganismData>();
 
@@ -188,6 +181,8 @@ public class SimulationManager : MonoBehaviour
             new List<OrganismData>(
                 Planet.organisms
             );
+
+        int reproducedCount = 0;
 
         foreach (
             OrganismData organism
@@ -222,25 +217,28 @@ public class SimulationManager : MonoBehaviour
 
                 newborns.Add(child);
 
-                Debug.Log(
-                    "Organism " +
-                    organism.id +
-                    " reproduced. " +
-                    "Child: " +
-                    child.id
-                );
+                reproducedCount++;
             }
         }
 
+  
         Planet.organisms.AddRange(
             newborns
         );
 
+
+        int populationBeforeDeath =
+            Planet.organisms.Count;
+
         RemoveDeadOrganisms();
 
+        int deadCount =
+            populationBeforeDeath -
+            Planet.organisms.Count;
+
+     
         UpdateEnvironment();
 
-        // Обновляем UI
         if (planetParameters != null)
         {
             planetParameters.UpdateSliders();
@@ -251,18 +249,100 @@ public class SimulationManager : MonoBehaviour
             populationStatus.UpdateStats();
         }
 
+        int currentPopulation =
+            Planet.organisms.Count;
+
+  
+        if (reproducedCount > 0)
+        {
+            SimulationEvents.Add(
+                "🧬 Родилось организмов: " +
+                reproducedCount
+            );
+        }
+
+       
+        if (deadCount > 0)
+        {
+            SimulationEvents.Add(
+                "☠️ Погибло организмов: " +
+                deadCount
+            );
+        }
+
+       
+        if (
+            currentPopulation != previousPopulation ||
+            tickCount % 10 == 0
+        )
+        {
+            SimulationEvents.Add(
+                "👥 Популяция: " +
+                currentPopulation
+            );
+
+            previousPopulation =
+                currentPopulation;
+        }
+
         Debug.Log(
-            "Population: " +
-            Planet.organisms.Count
+            "Популяция: " +
+            currentPopulation
         );
     }
 
     private void RemoveDeadOrganisms()
     {
+        int populationBefore =
+            Planet.organisms.Count;
+
         Planet.organisms.RemoveAll(
             organism =>
                 organism.state.health <= 0
         );
+
+        int deadCount =
+            populationBefore -
+            Planet.organisms.Count;
+
+        if (deadCount > 0)
+        {
+            SimulationEvents.Add(
+                "Умерло: " +
+                deadCount +
+                " организма(ов)"
+            );
+        }
+    }
+
+    private void CheckPopulationChanges()
+    {
+        int currentPopulation =
+            Planet.organisms.Count;
+
+        if (currentPopulation >=
+            previousPopulation + 5)
+        {
+            SimulationEvents.Add(
+                "Популяция увеличилась: " +
+                currentPopulation
+            );
+
+            previousPopulation =
+                currentPopulation;
+        }
+        else if (
+            currentPopulation <=
+            previousPopulation - 5)
+        {
+            SimulationEvents.Add(
+                "Попуяция уменьшилась: " +
+                currentPopulation
+            );
+
+            previousPopulation =
+                currentPopulation;
+        }
     }
 
     private void UpdateEnvironment()
