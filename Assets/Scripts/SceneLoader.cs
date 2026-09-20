@@ -44,7 +44,7 @@ public class SceneLoader : MonoBehaviour
     {
         isTransitioning = true;
 
-        // ПРОВЕРКА: назначена ли картинка
+        
         if (fadeScreen == null)
         {
             Debug.LogError("<color=red>[SceneLoader КРИТИЧЕСКАЯ ОШИБКА]</color> Поле 'Fade Screen' в инспекторе ПУСТОЕ (None)! Скрипт не знает, что затемнять, и грузит сцену мгновенно.");
