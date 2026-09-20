@@ -1,13 +1,21 @@
+
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using static System.Net.Mime.MediaTypeNames;
 using Debug = UnityEngine.Debug;
 
 public class SimulationManager : MonoBehaviour
 {
     [SerializeField]
     private float tickInterval = 0.25f;
+
+    [SerializeField]
+    private PlanetParameters planetParameters;
+
+    [SerializeField]
+    private PopulationStatus populationStatus;
 
     public PlanetData Planet
     {
@@ -22,11 +30,8 @@ public class SimulationManager : MonoBehaviour
     }
 
     private DecisionEngine decisionEngine;
-
     private ActionSystem actionSystem;
-
     private EvolutionSystem evolutionSystem;
-
     private float tickTimer;
 
     private void Start()
@@ -52,6 +57,17 @@ public class SimulationManager : MonoBehaviour
         }
 
         InitializePopulation();
+
+        // Передаём планету в UI
+        if (planetParameters != null)
+        {
+            planetParameters.Initialize(Planet);
+        }
+
+        if (populationStatus != null)
+        {
+            populationStatus.Initialize(Planet);
+        }
 
         Debug.Log(
             "Initial population: " +
@@ -114,7 +130,9 @@ public class SimulationManager : MonoBehaviour
                 new List<OrganismData>();
         }
 
-        foreach (OrganismData organism in Planet.organisms)
+        foreach (
+            OrganismData organism
+            in Planet.organisms)
         {
             if (organism.genome == null)
             {
@@ -125,7 +143,9 @@ public class SimulationManager : MonoBehaviour
             if (organism.direction == null)
             {
                 Vector2 randomDirection =
-                    UnityEngine.Random.insideUnitCircle.normalized;
+                    UnityEngine.Random
+                        .insideUnitCircle
+                        .normalized;
 
                 organism.direction =
                     new DirectionData
@@ -205,6 +225,17 @@ public class SimulationManager : MonoBehaviour
         RemoveDeadOrganisms();
 
         UpdateEnvironment();
+
+        // Обновляем UI
+        if (planetParameters != null)
+        {
+            planetParameters.UpdateSliders();
+        }
+
+        if (populationStatus != null)
+        {
+            populationStatus.UpdateStats();
+        }
 
         Debug.Log(
             "Population: " +

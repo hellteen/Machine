@@ -1001,6 +1001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimulationManager
   tickInterval: 1
+  planetParameters: {fileID: 1663808868}
+  populationStatus: {fileID: 861910228}
 --- !u!1 &487202395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1863,7 @@ GameObject:
   - component: {fileID: 861910225}
   - component: {fileID: 861910227}
   - component: {fileID: 861910226}
+  - component: {fileID: 861910228}
   m_Layer: 5
   m_Name: Card_Status
   m_TagString: Untagged
@@ -1931,6 +1934,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 861910224}
   m_CullTransparentMesh: 1
+--- !u!114 &861910228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 861910224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea5a028cca190e24e85c88b17ed82633, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopulationStatusUI
+  sliderEnergy: {fileID: 528587441}
+  sliderHP: {fileID: 1725150920}
+  sliderAge: {fileID: 1360447145}
+  sliderHungry: {fileID: 396112637}
 --- !u!1 &881991845
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,6 +3624,7 @@ GameObject:
   - component: {fileID: 1663808865}
   - component: {fileID: 1663808867}
   - component: {fileID: 1663808866}
+  - component: {fileID: 1663808868}
   m_Layer: 5
   m_Name: Planet_Card
   m_TagString: Untagged
@@ -3675,6 +3695,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663808864}
   m_CullTransparentMesh: 1
+--- !u!114 &1663808868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663808864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ea8681a56f746340ba8eb12c4b90f73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlanetParametersUI
+  sliderWarm: {fileID: 1839087763}
+  sliderRadias: {fileID: 1640672146}
+  sliderResurs: {fileID: 1897218425}
+  sliderEnergy: {fileID: 816421442}
 --- !u!1 &1678341411
 GameObject:
   m_ObjectHideFlags: 0
